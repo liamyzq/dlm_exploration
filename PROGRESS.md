@@ -116,3 +116,12 @@ parallelism within the available per-device memory. Native token parity,
 candidate headroom and speedup remain unmeasured. The goal continues through
 the declared scientific success/no-go decision; plan publication alone is not
 the stopping point.
+
+
+The pinned data cohorts are now complete (job `003-data-v3`, implementation
+`94f830a`). Native DFlash2 collection and target-only generation are running on
+the first 20 interleaved discovery prompts as `003-s0-native-tp4-v1` and
+`003-s0-ar-tp4-v1`. Both use the same four-way topology and frozen configuration;
+physical placements are recorded in their job manifests. Stage-0 parity and
+memory feasibility remain pending. The 600 final-test prompts have no generated
+outcomes and will remain unused until selector lock.
