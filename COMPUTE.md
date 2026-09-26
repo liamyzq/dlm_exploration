@@ -146,3 +146,19 @@ defaults to `BatchEncoding`, so the collection driver explicitly requests
 confirmed the default returns two string keys and the explicit setting returns
 a 52-element integer list for the first discovery prompt. Both target-only and
 native DFlash2 models successfully initialized before this input-interface repair.
+
+
+The first completed Orion pilot (implementation `083ccf1`) matched AR and
+native SD tokens on 9/20 prompts. Inputs were identical, but 11 continuations
+diverged. The 72 retained graphs from the nine matching prompts passed native
+walk reconstruction and nonterminal round alignment. The default-arithmetic
+pilot is invalid for the declared exact-greedy study and remains preserved.
+
+The next integration config sets `VLLM_BATCH_INVARIANT=1` before vLLM import
+and selects `FLASH_ATTN` version 2 in both AR and native runs. Tagged vLLM
+0.30.0 implements Ampere-family invariant matrix operations and advertises
+invariance/noncausal support for this attention backend. Keep eager execution
+for Python graph capture. This remedy still requires actual paired verification.
+Any final timing claim must identify this batch-invariant runtime and use it
+equally across methods. Source:
+https://github.com/vllm-project/vllm/blob/v0.30.0/docs/features/batch_invariance.md

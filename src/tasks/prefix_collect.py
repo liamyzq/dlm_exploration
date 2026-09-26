@@ -32,7 +32,7 @@ def main():
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     assert not (out/'generations.jsonl').exists(), 'Use a fresh run directory.'
-    os.environ['VLLM_USE_V2_MODEL_RUNNER'] = '1'
+    os.environ.update(config['environment'])
     from vllm import LLM, SamplingParams
     from transformers import AutoTokenizer
     import torch

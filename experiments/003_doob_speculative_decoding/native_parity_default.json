@@ -1,0 +1,54 @@
+{
+  "status": "invalid",
+  "prompts": 20,
+  "retained_graphs": 72,
+  "captured_rounds": 483,
+  "post_terminal_rounds": 18,
+  "failures": [
+    {
+      "prompt_id": "mbpp:203",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "mbpp:292",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "alpaca_eval:662",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "alpaca_eval:604",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "gsm8k:104",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "mbpp:76",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "alpaca_eval:750",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "mbpp:390",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "alpaca_eval:516",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "mbpp:235",
+      "failure": "AR/native token mismatch"
+    },
+    {
+      "prompt_id": "alpaca_eval:770",
+      "failure": "AR/native token mismatch"
+    }
+  ],
+  "scope": "Native graph integration and exact greedy parity; no acceleration claim"
+}

@@ -15,11 +15,19 @@
     "enforce_eager": true,
     "enable_prefix_caching": false,
     "enable_chunked_prefill": false,
-    "seed": 20260926
+    "seed": 20260926,
+    "attention_config": {
+      "backend": "FLASH_ATTN",
+      "flash_attn_version": 2
+    }
   },
   "speculative": {
     "method": "dflash",
     "num_speculative_tokens": 7,
     "draft_sample_method": "greedy"
+  },
+  "environment": {
+    "VLLM_USE_V2_MODEL_RUNNER": "1",
+    "VLLM_BATCH_INVARIANT": "1"
   }
 }
