@@ -2,7 +2,7 @@
 
 ## Start an idea
 
-Create `experiments/<idea_id>/README.md` from [idea-template.md](idea-template.md). Choose a stable descriptive ID such as `001_<short_name>`. The directory survives branch merges and contains the question, decision-relevant notes, exact runnable commands once available, and links to results. Add `configs/<idea_id>/` when an executable configuration exists. Implement reusable changes in `src/methods/` or the appropriate shared component.
+Create `experiments/<idea_id>/README.md` from [idea-template.md](idea-template.md). Choose a stable descriptive ID such as `001_<short_name>`. The directory survives branch merges and contains the question, decision-relevant notes, exact runnable commands once available, and links to results. Identify the model family and comparator for that idea; `000_baseline` is the original CoLA workspace, while a new DLM or speculative-decoding system needs its own baseline integration and provenance. Add `configs/<idea_id>/` when an executable configuration exists. Implement reusable changes in `src/methods/` or the appropriate shared component.
 
 Use one implementation to compare A, B, and A+B when the methods can compose. If an architectural rewrite cannot yet coexist, develop it on an isolated branch or worktree and decide how to integrate it after the evidence is available.
 

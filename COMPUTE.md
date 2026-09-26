@@ -2,6 +2,12 @@
 
 ## Primary workspace
 
+The GitHub repository is `liamyzq/dlm_exploration`. Existing remote checkout and
+storage directories retain their `cola_dlm_exploration` names so saved commands,
+environments, and artifact references remain valid. The environment and launcher
+below serve the existing CoLA studies; document the model environment and
+resource allocation for a new DLM or speculative-decoding study before launch.
+
 Use the existing local SSH alias `nebula`. At initialization it resolves to `mlw0719@nebula.osl.northwestern.edu` through `quest`. SSH connectivity and GitHub access over SSH were observed on 2026-09-14 UTC. Keep authentication in the user's existing SSH setup, outside this repository.
 
 | Purpose | Absolute path on nebula |
@@ -40,7 +46,7 @@ Frozen worktree creation and synchronization procedures are in [docs/workflow.md
 
 ## Known access behavior
 
-Local HTTPS GitHub access failed because no HTTPS credentials were available in the shell. The existing SSH authentication successfully accessed this repository from both the local machine and nebula. Use `git@github.com:liamyzq/cola_dlm_exploration.git`; no credential changes are needed.
+Local HTTPS GitHub access failed because no HTTPS credentials were available in the shell. The existing SSH authentication successfully accessed this repository from both the local machine and nebula. Use `git@github.com:liamyzq/dlm_exploration.git`; no credential changes are needed.
 
 ## Idea 001 allocation and environment
 

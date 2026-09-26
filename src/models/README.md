@@ -1,3 +1,7 @@
 # Shared Models
 
-Integrate the selected CoLA and related continuous DLM implementations here. Record upstream source revisions and preserve their license requirements when importing code. All ideas reuse this layer rather than maintaining copied model trees.
+Integrate continuous and discrete DLMs, DLM-based speculative drafters, and the
+target-model interfaces needed to evaluate them here. CoLA is the current
+integration. Record upstream source and checkpoint revisions, and preserve
+license requirements when importing code. Reuse model integrations across ideas
+that share the same model family rather than copying model trees.
