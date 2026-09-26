@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "cases": 24,
+  "enumerated_paths": 648,
+  "divergence_categories": 6,
+  "maximum_absolute_error": 4.440892098500626e-16,
+  "scope": "New analytic family ceiling and divergence decomposition; no model forwards."
+}

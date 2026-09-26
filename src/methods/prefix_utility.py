@@ -154,6 +154,7 @@ def greedy_statistics(q: Rows, c: Rows, greedy: Sequence[int],
         mean_acceptance[str(strength)] = float(sum(curve))
         survival_curves[str(strength)] = curve
     return {'mean_utility_q': mu, 'mean_acceptance_q': base_acceptance,
+            'mixed_acceptance_utility_q': mixed_moment,
             'covariance_acceptance_utility': covariance,
             'mean_acceptance_doob': mean_acceptance,
             'survival_doob': survival_curves,

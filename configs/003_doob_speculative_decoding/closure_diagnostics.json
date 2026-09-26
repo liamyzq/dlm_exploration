@@ -1,0 +1,12 @@
+{
+  "experiment": "003-closure-diagnostics-v1",
+  "collection_root": "/home/mlw0719/cola_dlm_exploration_storage/runs/003_doob_speculative_decoding",
+  "collection_commit": "1ec5078e61909e4eb18105f8444bd7f525bf9986",
+  "reference_analysis": "/home/mlw0719/cola_dlm_exploration_storage/runs/003_doob_speculative_decoding/003-exact-offline-v1/analysis",
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 20260927,
+  "confidence": 0.95,
+  "engineering_gain": 0.03,
+  "maximum_cpu_wall_minutes": 10,
+  "source_message_id": "26e7d0f2-a998-47a1-aabe-97e6f649ea54"
+}
