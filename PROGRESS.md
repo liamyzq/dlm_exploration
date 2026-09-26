@@ -100,34 +100,27 @@ all tested commits and commands. Two pre-existing untracked P0 drafts remain
 untouched and are not validated R-series entry points.
 
 
-### Idea 003 execution preparation (2026-09-26 UTC)
+### Idea 003: native integration passed (2026-09-26 UTC)
 
-The accepted English protocol is now executable through native lattice collection
-and exact offline comparison. The independent CPU reference check passed 200
-random small lattices and 20,803 enumerated paths, with maximum absolute error
-8.33e-16. This supports the mathematical implementation, not an LLM speed claim.
-The target, drafter and isolated vLLM environment are downloaded and pinned.
-Initial dataset construction failed on the removed AlpacaEval builder interface;
-the repair reads the same pinned source JSON and preserves the split protocol.
+The complete English protocol is in
+[experiments/003_doob_speculative_decoding/PLAN.md](experiments/003_doob_speculative_decoding/PLAN.md).
+The independent CPU reference check passed 200 small lattices and 20,803 paths
+with maximum absolute error 8.33e-16. The pinned cohorts contain 150 discovery,
+150 validation and 600 final-test prompts; their source revisions and exact IDs
+are saved with the idea.
 
-All nine Nebula GPUs are busy. The user expanded allocation to any available
-index 0-9 and allowed stacking, so initial collection uses four-way tensor
-parallelism within the available per-device memory. Native token parity,
-candidate headroom and speedup remain unmeasured. The goal continues through
-the declared scientific success/no-go decision; plan publication alone is not
-the stopping point.
+Native DFlash2 and target-only AR now match all 7,353 generated tokens on 20
+discovery prompts under vLLM batch-invariant arithmetic. All 160 retained native
+lattices pass greedy-walk reconstruction and nonterminal boundary accounting
+(2,031 captured rounds, including 40 post-terminal proposals). This validates
+the interface. The earlier default-arithmetic pilot matched only 9/20 prompts
+and is preserved as invalid evidence; see the compute record for startup repairs.
 
-
-The pinned data cohorts are now complete (job `003-data-v3`, implementation
-`94f830a`). Native DFlash2 collection and target-only generation are running on
-the first 20 interleaved discovery prompts as `003-s0-native-tp4-v1` and
-`003-s0-ar-tp4-v1`. Both use the same four-way topology and frozen configuration;
-physical placements are recorded in their job manifests. Stage-0 parity and
-memory feasibility remain pending. The 600 final-test prompts have no generated
-outcomes and will remain unused until selector lock.
-
-
-Stage 0 moved to authorized Orion after Nebula multi-GPU startup failed to
-progress. Orion's first starts exposed an environment PATH omission, repaired
-without changing model weights or the scientific protocol. No generated model
-outcomes exist yet, so no research conclusion follows from these startup runs.
+Proceed with the complete 300-prompt discovery/validation collection on Orion,
+using the same frozen invariant runtime. The two-lane schedule balances one AR
+and one native cohort per GPU. Pilot timings imply about 1.81 device-hours,
+with a four-device-hour collection budget. These capture timings are operational
+estimates, not speedup evidence. Next, exact offline acceptance and the one
+permitted calibration pass decide whether either selector merits implementation.
+The 600 final-test prompts remain unused until selector lock. No success or
+scientific no-go conclusion has been reached.

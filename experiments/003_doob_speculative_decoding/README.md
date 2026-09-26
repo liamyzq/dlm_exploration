@@ -56,3 +56,10 @@ Proceed to baseline integration and mathematical reference verification.
 Stop this version with a recorded no-go if candidate headroom, useful acceptance
 gain, or net held-out speedup is absent under the declared budget. An invalid
 implementation or unavailable resource is not scientific negative evidence.
+
+
+Stage 0 passed under the batch-invariant runtime: 20/20 prompts have exact
+AR/native greedy agreement, and all 160 retained lattices pass reconstruction.
+See `native_parity_invariant.json` and the job/result ledgers. The complete
+development collection follows `configs/003_doob_speculative_decoding/development_schedule.json`.
+Scientific acceptance and acceleration outcomes remain unmeasured.

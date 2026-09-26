@@ -1,0 +1,26 @@
+{
+  "experiment": "003-development-v1",
+  "runtime_config": "configs/003_doob_speculative_decoding/native_orion.json",
+  "machine": "orion",
+  "unique_prompts": 300,
+  "prompts_per_split": 150,
+  "generations_per_prompt": 2,
+  "maximum_retained_graphs": 2400,
+  "maximum_new_tokens": 1024,
+  "expected_collection_device_hours": 1.81,
+  "device_hour_budget": 4.0,
+  "lane_wall_hour_budget": 2.0,
+  "budget_basis": "20-prompt invariant pilot: AR 326.2044 seconds; native collection 106.7940 seconds. Each lane generates 150 AR and 150 native prompts, plus model initialization.",
+  "lanes": [
+    {"gpu": 0, "jobs": [
+      {"experiment": "003-dev-discovery-ar-v1", "mode": "ar", "split": "discovery"},
+      {"experiment": "003-dev-validation-native-v1", "mode": "native", "split": "validation"}
+    ]},
+    {"gpu": 3, "jobs": [
+      {"experiment": "003-dev-discovery-native-v1", "mode": "native", "split": "discovery"},
+      {"experiment": "003-dev-validation-ar-v1", "mode": "ar", "split": "validation"}
+    ]}
+  ],
+  "execution": "Submit each second job only after the first exits successfully with all 150 prompts. Recheck free GPU memory before placement. Luna max monitors handle the fixed sequence and report terminal outcomes or actionable exceptions. No final-test generation occurs.",
+  "invalidation": "Token mismatches, missing prompts, graph indexing failures or incomplete jobs invalidate the affected comparison. Infrastructure failures do not establish a scientific no-go. Collection times include capture overhead and are not acceleration evidence."
+}
