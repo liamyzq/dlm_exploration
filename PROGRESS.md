@@ -125,3 +125,9 @@ the first 20 interleaved discovery prompts as `003-s0-native-tp4-v1` and
 physical placements are recorded in their job manifests. Stage-0 parity and
 memory feasibility remain pending. The 600 final-test prompts have no generated
 outcomes and will remain unused until selector lock.
+
+
+Stage 0 moved to authorized Orion after Nebula multi-GPU startup failed to
+progress. Orion's first starts exposed an environment PATH omission, repaired
+without changing model weights or the scientific protocol. No generated model
+outcomes exist yet, so no research conclusion follows from these startup runs.

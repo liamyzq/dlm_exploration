@@ -128,3 +128,13 @@ precision, token cap and prompt protocol. This is the preferred full study
 configuration if saturated Nebula cannot complete its four-way integration.
 Use separate experiment identifiers for each host/topology. Do not pool their
 timing results or silently merge lattices from different configurations.
+
+
+The Orion SD environment completed setup at 02:31:20 UTC on 2026-09-26.
+The first two Orion stage-0 launches failed before generation because FlashInfer
+JIT could not resolve `ninja`. Ninja 1.13.2 was already installed in the venv;
+the launcher now prepends that environment's `bin` directory to PATH so worker
+subprocesses can find it. The CUDA compiler exists at `/usr/local/cuda/bin/nvcc`.
+Nebula's stacked four-GPU starts made no model-load/generation progress for nine
+minutes and were cancelled. Remaining workers required SIGKILL; both study
+process groups were subsequently observed drained. Other jobs were untouched.

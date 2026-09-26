@@ -25,10 +25,12 @@ def main():
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     assert not subprocess.check_output(['git', 'status', '--porcelain'], text=True).strip(), 'Use a committed frozen worktree.'
     storage = '/home/mlw0719/cola_dlm_exploration_storage'
+    environment_bin = f'{storage}/venvs/idea003-vllm030/bin'
     argv = ['env', f'PYTHONPATH={os.getcwd()}', f'HF_HOME={storage}/hf_cache',
+            f'PATH={environment_bin}:{os.environ["PATH"]}',
             'HF_HUB_DISABLE_PROGRESS_BARS=1', 'VLLM_USE_V2_MODEL_RUNNER=1',
             f'CUDA_VISIBLE_DEVICES={args.gpu}',
-            f'{storage}/venvs/idea003-vllm030/bin/python'] + command
+            f'{environment_bin}/python'] + command
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=False)
     record = dict(event='submitted', experiment=args.experiment, machine=socket.gethostname().split('.')[0], scheduler='direct',
