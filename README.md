@@ -40,7 +40,10 @@ The speculative-decoding direction is registered as
 [003: Frozen-lattice prefix-utility decoding](experiments/003_doob_speculative_decoding/README.md).
 Its [execution plan](experiments/003_doob_speculative_decoding/PLAN.md) specifies
 Prefix-DP and analytic Doob comparisons, exact offline acceptance evaluation,
-and staged latency experiments. Baseline integration is the next step.
+and staged latency experiments. Its [final report](experiments/003_doob_speculative_decoding/results/FINAL_REPORT.md)
+closes the tested version at the offline acceptance gate: 300 prompts and 2,400
+valid graphs reveal substantial candidate headroom, but no useful validation
+gain from the proposed selectors after the declared calibration.
 
 ## Workspace and structure
 

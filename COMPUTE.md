@@ -180,3 +180,16 @@ statistical choices. Job records identify actual committed launch snapshots.
 The offline calibration dependency SciPy 1.18.1 is installed in the isolated
 Nebula environment. The targeted Q-control selection regression passed there.
 The complete environment snapshot is setup-v1/packages-development.txt.
+
+
+### Idea 003: collection and analysis completed (2026-09-26 UTC)
+
+All four Nebula development jobs exited successfully with 150 prompts each.
+Collection consumed 2.164 device-hours including startup and capture; elapsed
+time was 49.4 minutes, below the one-hour lane and four-device-hour total
+budgets. Both parity checks passed before the CPU exact analysis was submitted.
+The analysis completed the one permitted calibration and reached the declared
+offline no-go. Its process success and scientific negative outcome are
+recorded separately in the ledgers. The five process groups have no remaining
+members; GPUs 0-3 each returned to 1 MiB used and 0% utilization at the final
+check. All historical logs, artifacts, and frozen worktrees are retained.

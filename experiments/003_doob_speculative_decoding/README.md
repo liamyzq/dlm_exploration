@@ -1,65 +1,42 @@
 # 003: Frozen-Lattice Prefix-Utility Decoding
 
-Status: execution protocol accepted; integration and experiments pending.
+Status: **complete — scientific no-go at the offline acceptance gate**.
 
-## Question and hypothesis
+The [final report](results/FINAL_REPORT.md) records valid measurements on 300
+prompts and 2,400 frozen DFlash2 candidate graphs. All 122,344 generated tokens
+agree between native speculative decoding and target-only greedy decoding.
 
-Can a frozen DLM-based speculative drafter's existing candidate-dependency
-scores support a better single-path selector, increasing accepted-prefix length
-and reducing decoding latency at fixed candidate and verification budgets?
+Candidate coverage leaves a 51.91% oracle plus-one screening gain, but the
+tested proxies do not exploit it. Validation Prefix-DP gains are -0.0117 tokens
+for c=q (95% CI [-0.0475, 0.0250]) and -0.0142 after calibration
+([-0.0542, 0.0242]). Discovery-selected Doob strength 100 remains below native
+by 0.2358 tokens before calibration and 0.2600 afterward. No proposed selector
+passes the predeclared positive-interval and 3% engineering gate.
 
-The complete [English plan](PLAN.md) defines the mathematical formulation,
-Prefix-DP, analytic Doob sampling, exact offline evaluation, staged experiments,
-and success/no-go decisions. It develops the latest
-[research conversation](https://chatgpt.com/c/6ab6d0b8-eee8-83ea-801a-9bb61f110338).
+The one permitted discovery-only calibration is complete. Stages 5-6 are not
+activated; the 600 final prompts remain unused. This is a scoped no-go for the
+tested rules, checkpoint pair and budget. End-to-end acceleration of the
+proposed selectors is unmeasured.
 
-## Comparison
+## Plan and evidence
 
-Begin with Qwen3-4B and the experimental Speculators DFlash2 drafter, seven
-speculative tokens, top-16 candidates, and non-thinking greedy target decoding.
-Native selection is the main baseline. Compare Prefix-DP and Doob reweighting
-against ordinary sampling, temperature controls, and full-path optimization.
-The initial proxy is `c = q`; a single conditional calibration stage is distinct.
+The complete [English plan](PLAN.md) preserves all 28 numbered equations from
+the [source research conversation](https://chatgpt.com/c/6ab6d0b8-eee8-83ea-801a-9bb61f110338),
+including Prefix-DP, analytic Doob sampling, exact acceptance expectations,
+conditional calibration and staged stopping decisions.
 
-The data budget is 900 prompts across math, code, and general instructions:
-300 development prompts and 600 held-out prompts. First collect legal native
-lattices and evaluate acceptance exactly. Only selectors that show useful
-validation gains proceed to cost measurement and complete decoding.
+- [Final report](results/FINAL_REPORT.md): setting, controls, uncertainty,
+  domain differences, calibration, interpretation and stopping point.
+- [Exact offline summary](results/offline_summary.json): every tested setting.
+- [Collection accounting](results/collection_summary.json),
+  [discovery parity](results/native_parity_discovery.json) and
+  [validation parity](results/native_parity_validation.json).
+- [Dataset manifest](data_manifest.json), [reference verification](reference_verification.json),
+  [result ledger](../results.tsv) and [job ledger](../../jobs/jobs.jsonl).
 
-## Implementation
-
-New model integration belongs in `src/models/`, reusable selectors in
-`src/methods/`, and executable experiment configurations in
-`configs/003_doob_speculative_decoding/`. CoLA remains a separate model family.
-The current integration candidates and source caveats are documented in the plan.
-
-## Runs and evidence
-
-No experiments have been run for this idea at protocol registration. Record
-each formal run's committed implementation, configuration, exact command, seed,
-machine, and artifact path in the repository's existing
-[result ledger](../results.tsv) and [job ledger](../../jobs/jobs.jsonl).
-
-Primary work is on Nebula; large artifacts stay under
+Implementation is shared under `src/models/`, `src/methods/` and `src/tasks/`.
+Frozen configurations are under `configs/003_doob_speculative_decoding/`.
+The formal development and offline execution commit is
+`1ec5078e61909e4eb18105f8444bd7f525bf9986`.
+Large artifacts remain on Nebula under
 `/home/mlw0719/cola_dlm_exploration_storage/runs/003_doob_speculative_decoding/`.
-Long-running monitoring uses a Luna max subagent, which reports terminal results
-or actionable changes while the main agent owns scientific interpretation.
-
-## Findings and decision
-
-The plan has been checked against the complete source response and preserves
-all 28 numbered formulas and stages 0-6. Primary-source checks establish a
-candidate deployment route and sufficiently large proposed dataset splits.
-Real-model acceptance gain, end-to-end speedup, and broad novelty are unmeasured.
-
-Proceed to baseline integration and mathematical reference verification.
-Stop this version with a recorded no-go if candidate headroom, useful acceptance
-gain, or net held-out speedup is absent under the declared budget. An invalid
-implementation or unavailable resource is not scientific negative evidence.
-
-
-Stage 0 passed under the batch-invariant runtime: 20/20 prompts have exact
-AR/native greedy agreement, and all 160 retained lattices pass reconstruction.
-See `native_parity_invariant.json` and the job/result ledgers. The complete
-development collection follows `configs/003_doob_speculative_decoding/development_schedule.json`.
-Scientific acceptance and acceleration outcomes remain unmeasured.

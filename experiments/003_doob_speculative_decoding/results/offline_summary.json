@@ -1,0 +1,1891 @@
+{
+  "config": {
+    "experiment": "003-exact-offline-v1",
+    "doob_strengths": [
+      0.0,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "temperatures": [
+      0.5,
+      0.75,
+      1.0,
+      1.5
+    ],
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 20260927,
+    "engineering_gain": 0.03,
+    "confidence": 0.95,
+    "calibration": {
+      "temperature_bounds": [
+        0.05,
+        20.0
+      ],
+      "objective": "Mean negative log probability of covered greedy choices on surviving true-prefix rows; depthwise coverage is empirical inclusion frequency over eligible rows.",
+      "activation": "No zero-fit selector passes validation and oracle headroom reaches the engineering threshold.",
+      "passes": 1
+    }
+  },
+  "uncalibrated": {
+    "discovery": {
+      "prompts": 150,
+      "retained_graphs": 1200,
+      "methods": {
+        "native": {
+          "mean_acceptance": 2.8508333333333336,
+          "mean_yield": 3.7441666666666666,
+          "acceptance_gain": 0.0,
+          "acceptance_gain_ci": [
+            0.0,
+            0.0
+          ],
+          "plus_one_gain": 0.0,
+          "yield_gain": 0.0,
+          "passes_gate": false
+        },
+        "prefix_dp": {
+          "mean_acceptance": 2.8908333333333336,
+          "mean_yield": 3.785,
+          "acceptance_gain": 0.040000000000000036,
+          "acceptance_gain_ci": [
+            0.005833333333333357,
+            0.07252083333333344
+          ],
+          "plus_one_gain": 0.010387362042847847,
+          "yield_gain": 0.010905853549966649,
+          "passes_gate": false
+        },
+        "full_path": {
+          "mean_acceptance": 2.855,
+          "mean_yield": 3.748333333333333,
+          "acceptance_gain": 0.00416666666666643,
+          "acceptance_gain_ci": [
+            -0.03502083333333386,
+            0.043333333333333
+          ],
+          "plus_one_gain": 0.001082016879463188,
+          "yield_gain": 0.0011128421989761161,
+          "passes_gate": false
+        },
+        "oracle": {
+          "mean_acceptance": 4.835,
+          "mean_yield": 5.713333333333334,
+          "acceptance_gain": 1.9841666666666664,
+          "acceptance_gain_ci": [
+            1.866645833333333,
+            2.105020833333333
+          ],
+          "plus_one_gain": 0.5152564380004327,
+          "yield_gain": 0.5259292232361452,
+          "passes_gate": true
+        },
+        "doob_0": {
+          "mean_acceptance": 2.403515469916098,
+          "mean_yield": 3.3206565861814954,
+          "acceptance_gain": -0.44731786341723545,
+          "acceptance_gain_ci": [
+            -0.5067089398578458,
+            -0.3916568663513333
+          ],
+          "plus_one_gain": -0.11616131488869996,
+          "yield_gain": -0.1131119734213678,
+          "passes_gate": false
+        },
+        "doob_0.1": {
+          "mean_acceptance": 2.440622553847747,
+          "mean_yield": 3.355767939724893,
+          "acceptance_gain": -0.4102107794855865,
+          "acceptance_gain_ci": [
+            -0.467563266635944,
+            -0.3570453904368452
+          ],
+          "plus_one_gain": -0.1065251970098905,
+          "yield_gain": -0.10373435840866418,
+          "passes_gate": false
+        },
+        "doob_1": {
+          "mean_acceptance": 2.528174962708377,
+          "mean_yield": 3.438384889098829,
+          "acceptance_gain": -0.3226583706249566,
+          "acceptance_gain_ci": [
+            -0.3736857408205023,
+            -0.2766460002517132
+          ],
+          "plus_one_gain": -0.08378923279592032,
+          "yield_gain": -0.08166884778130545,
+          "passes_gate": false
+        },
+        "doob_10": {
+          "mean_acceptance": 2.5779134873758913,
+          "mean_yield": 3.485356503908188,
+          "acceptance_gain": -0.27291984595744223,
+          "acceptance_gain_ci": [
+            -0.32107196319038106,
+            -0.22940628513445896
+          ],
+          "plus_one_gain": -0.07087293121595561,
+          "yield_gain": -0.06912356895396721,
+          "passes_gate": false
+        },
+        "doob_100": {
+          "mean_acceptance": 2.586517947296934,
+          "mean_yield": 3.4935107437449644,
+          "acceptance_gain": -0.2643153860363996,
+          "acceptance_gain_ci": [
+            -0.31195993077621786,
+            -0.22114035937471002
+          ],
+          "plus_one_gain": -0.06863849020637947,
+          "yield_gain": -0.06694571722814213,
+          "passes_gate": false
+        },
+        "temperature_0.5": {
+          "mean_acceptance": 2.712563930789788,
+          "mean_yield": 3.614970555332633,
+          "acceptance_gain": -0.13826940254354536,
+          "acceptance_gain_ci": [
+            -0.1755226589954962,
+            -0.10288839358220064
+          ],
+          "plus_one_gain": -0.03590635859170188,
+          "yield_gain": -0.03450597231267316,
+          "passes_gate": false
+        },
+        "temperature_0.75": {
+          "mean_acceptance": 2.5759266325773864,
+          "mean_yield": 3.4850814555062555,
+          "acceptance_gain": -0.27490670075594714,
+          "acceptance_gain_ci": [
+            -0.3256468111367649,
+            -0.2295189287216918
+          ],
+          "plus_one_gain": -0.07138888571892155,
+          "yield_gain": -0.06919702946639072,
+          "passes_gate": false
+        },
+        "temperature_1": {
+          "mean_acceptance": 2.403515469916098,
+          "mean_yield": 3.3206565861814954,
+          "acceptance_gain": -0.44731786341723545,
+          "acceptance_gain_ci": [
+            -0.5067089398578458,
+            -0.3916568663513333
+          ],
+          "plus_one_gain": -0.11616131488869996,
+          "yield_gain": -0.1131119734213678,
+          "passes_gate": false
+        },
+        "temperature_1.5": {
+          "mean_acceptance": 1.98939040936947,
+          "mean_yield": 2.923915211983703,
+          "acceptance_gain": -0.8614429239638635,
+          "acceptance_gain_ci": [
+            -0.9383604121426874,
+            -0.7864584872106631
+          ],
+          "plus_one_gain": -0.22370298826155288,
+          "yield_gain": -0.21907450381027294,
+          "passes_gate": false
+        }
+      },
+      "per_domain": {
+        "math": {
+          "native": {
+            "mean_acceptance": 3.6525,
+            "mean_yield": 4.54
+          },
+          "prefix_dp": {
+            "mean_acceptance": 3.68,
+            "mean_yield": 4.5675
+          },
+          "full_path": {
+            "mean_acceptance": 3.6,
+            "mean_yield": 4.4875
+          },
+          "oracle": {
+            "mean_acceptance": 5.5075,
+            "mean_yield": 6.39
+          },
+          "doob_0": {
+            "mean_acceptance": 3.162200583105024,
+            "mean_yield": 4.065962065483884
+          },
+          "doob_0.1": {
+            "mean_acceptance": 3.2054385007587687,
+            "mean_yield": 4.107760165912115
+          },
+          "doob_1": {
+            "mean_acceptance": 3.2958749569706725,
+            "mean_yield": 4.1949965429130245
+          },
+          "doob_10": {
+            "mean_acceptance": 3.3411658447082884,
+            "mean_yield": 4.23871931962238
+          },
+          "doob_100": {
+            "mean_acceptance": 3.3487995073562407,
+            "mean_yield": 4.246118254702811
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 3.4906782273956627,
+            "mean_yield": 4.384345105834225
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 3.351152253657951,
+            "mean_yield": 4.249239721319141
+          },
+          "temperature_1": {
+            "mean_acceptance": 3.162200583105024,
+            "mean_yield": 4.065962065483884
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 2.6537452587003663,
+            "mean_yield": 3.5723686763069677
+          }
+        },
+        "code": {
+          "native": {
+            "mean_acceptance": 2.715,
+            "mean_yield": 3.6025
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.7725,
+            "mean_yield": 3.6625
+          },
+          "full_path": {
+            "mean_acceptance": 2.8025,
+            "mean_yield": 3.695
+          },
+          "oracle": {
+            "mean_acceptance": 5.04,
+            "mean_yield": 5.9175
+          },
+          "doob_0": {
+            "mean_acceptance": 2.2817016424174668,
+            "mean_yield": 3.2046073618115627
+          },
+          "doob_0.1": {
+            "mean_acceptance": 2.317849553990112,
+            "mean_yield": 3.237953181618274
+          },
+          "doob_1": {
+            "mean_acceptance": 2.403751953421729,
+            "mean_yield": 3.317023230002566
+          },
+          "doob_10": {
+            "mean_acceptance": 2.45022433732367,
+            "mean_yield": 3.3598336993866593
+          },
+          "doob_100": {
+            "mean_acceptance": 2.4577505449747603,
+            "mean_yield": 3.3667731743280944
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.592201010611682,
+            "mean_yield": 3.494727688374533
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 2.453524847391747,
+            "mean_yield": 3.365782970737683
+          },
+          "temperature_1": {
+            "mean_acceptance": 2.2817016424174668,
+            "mean_yield": 3.2046073618115627
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.8823903954202499,
+            "mean_yield": 2.825801312910501
+          }
+        },
+        "general_instructions": {
+          "native": {
+            "mean_acceptance": 2.185,
+            "mean_yield": 3.09
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.22,
+            "mean_yield": 3.125
+          },
+          "full_path": {
+            "mean_acceptance": 2.1625,
+            "mean_yield": 3.0625
+          },
+          "oracle": {
+            "mean_acceptance": 3.9575,
+            "mean_yield": 4.8325
+          },
+          "doob_0": {
+            "mean_acceptance": 1.766644184225805,
+            "mean_yield": 2.6914003312490387
+          },
+          "doob_0.1": {
+            "mean_acceptance": 1.7985796067943634,
+            "mean_yield": 2.7215904716442907
+          },
+          "doob_1": {
+            "mean_acceptance": 1.8848979777327264,
+            "mean_yield": 2.803134894380896
+          },
+          "doob_10": {
+            "mean_acceptance": 1.942350280095716,
+            "mean_yield": 2.857516492715523
+          },
+          "doob_100": {
+            "mean_acceptance": 1.953003789559802,
+            "mean_yield": 2.8676408022039874
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.0548125543620217,
+            "mean_yield": 2.9658388717891415
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 1.923102796682462,
+            "mean_yield": 2.840221674461944
+          },
+          "temperature_1": {
+            "mean_acceptance": 1.766644184225805,
+            "mean_yield": 2.6914003312490387
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.4320355739877946,
+            "mean_yield": 2.3735756467336393
+          }
+        }
+      },
+      "prefix_survival": {
+        "native": [
+          0.8125,
+          0.6066666666666667,
+          0.4558333333333333,
+          0.3525,
+          0.2658333333333333,
+          0.20333333333333334,
+          0.15416666666666667
+        ],
+        "prefix_dp": [
+          0.8175,
+          0.615,
+          0.46166666666666667,
+          0.3575,
+          0.2725,
+          0.2075,
+          0.15916666666666668
+        ],
+        "full_path": [
+          0.8075,
+          0.6041666666666666,
+          0.45416666666666666,
+          0.35333333333333333,
+          0.27,
+          0.2075,
+          0.15833333333333333
+        ],
+        "oracle": [
+          0.9841666666666666,
+          0.9083333333333333,
+          0.79,
+          0.6866666666666666,
+          0.5641666666666667,
+          0.495,
+          0.4066666666666667
+        ],
+        "doob_0": [
+          0.7628490886925998,
+          0.5350570846804094,
+          0.37685752235738057,
+          0.27866257783188497,
+          0.19720242204686822,
+          0.14447369526464002,
+          0.10841307904231551
+        ],
+        "doob_0.1": [
+          0.7684257084261988,
+          0.5419054757979112,
+          0.38371822353000756,
+          0.28495574438344373,
+          0.20219892048977134,
+          0.14825371231326678,
+          0.11116476890714849
+        ],
+        "doob_1": [
+          0.7846943902892852,
+          0.5607735036690268,
+          0.40047483740479883,
+          0.29866118735212555,
+          0.21219583571095238,
+          0.1553591175244333,
+          0.1160160907577535
+        ],
+        "doob_10": [
+          0.7969299954605589,
+          0.573066394412453,
+          0.40981703192949626,
+          0.3053283637377318,
+          0.21662387830983568,
+          0.15830838258612445,
+          0.11783944093969145
+        ],
+        "doob_100": [
+          0.7994086110229013,
+          0.5752975610701508,
+          0.4113620263005835,
+          0.3063566698365517,
+          0.21727850739142104,
+          0.15873090775020712,
+          0.11808366392511864
+        ],
+        "temperature_0.5": [
+          0.7990959579685839,
+          0.5862675090205994,
+          0.43242595026235714,
+          0.3299454331454602,
+          0.24321149254453014,
+          0.18269004066948558,
+          0.13892754717877176
+        ],
+        "temperature_0.75": [
+          0.7840753299070367,
+          0.5642129195255039,
+          0.40779957603805833,
+          0.30725090381719444,
+          0.22215404140604866,
+          0.16521509643715593,
+          0.125218765446389
+        ],
+        "temperature_1": [
+          0.7628490886925997,
+          0.5350570846804094,
+          0.37685752235738057,
+          0.27866257783188497,
+          0.19720242204686822,
+          0.14447369526464002,
+          0.10841307904231551
+        ],
+        "temperature_1.5": [
+          0.7032672152096608,
+          0.45961170776985494,
+          0.3029501053834429,
+          0.21164318887255096,
+          0.1420981890463062,
+          0.0987411816151028,
+          0.07107882147255178
+        ]
+      },
+      "dp_changed_contexts": 185,
+      "dp_changed_delta_positive": 38,
+      "dp_changed_delta_zero": 118,
+      "dp_changed_delta_negative": 29,
+      "dp_changed_delta_mean": 0.2594594594594595,
+      "mean_covariance": 0.49633161364150036
+    },
+    "validation": {
+      "prompts": 150,
+      "retained_graphs": 1200,
+      "methods": {
+        "native": {
+          "mean_acceptance": 2.855833333333333,
+          "mean_yield": 3.7466666666666675,
+          "acceptance_gain": 0.0,
+          "acceptance_gain_ci": [
+            0.0,
+            0.0
+          ],
+          "plus_one_gain": 0.0,
+          "yield_gain": 0.0,
+          "passes_gate": false
+        },
+        "prefix_dp": {
+          "mean_acceptance": 2.8441666666666667,
+          "mean_yield": 3.7358333333333333,
+          "acceptance_gain": -0.01166666666666627,
+          "acceptance_gain_ci": [
+            -0.04749999999999989,
+            0.024999999999999467
+          ],
+          "plus_one_gain": -0.0030257186081693588,
+          "yield_gain": -0.0028914590747333158,
+          "passes_gate": false
+        },
+        "full_path": {
+          "mean_acceptance": 2.8475,
+          "mean_yield": 3.7408333333333332,
+          "acceptance_gain": -0.00833333333333286,
+          "acceptance_gain_ci": [
+            -0.05999999999999961,
+            0.040833333333333055
+          ],
+          "plus_one_gain": -0.00216122757726378,
+          "yield_gain": -0.0015569395017795973,
+          "passes_gate": false
+        },
+        "oracle": {
+          "mean_acceptance": 4.8575,
+          "mean_yield": 5.738333333333333,
+          "acceptance_gain": 2.001666666666667,
+          "acceptance_gain_ci": [
+            1.9025000000000003,
+            2.1016875
+          ],
+          "plus_one_gain": 0.5191268640587856,
+          "yield_gain": 0.5315836298932382,
+          "passes_gate": true
+        },
+        "doob_0": {
+          "mean_acceptance": 2.428809956216075,
+          "mean_yield": 3.3440082461492184,
+          "acceptance_gain": -0.427023377117258,
+          "acceptance_gain_ci": [
+            -0.4818561352551195,
+            -0.37483323853056555
+          ],
+          "plus_one_gain": -0.11074736385146089,
+          "yield_gain": -0.10747110867903442,
+          "passes_gate": false
+        },
+        "doob_0.1": {
+          "mean_acceptance": 2.4670715245429307,
+          "mean_yield": 3.3802611547117465,
+          "acceptance_gain": -0.38876180879040234,
+          "acceptance_gain_ci": [
+            -0.44133139968006146,
+            -0.33919023425418526
+          ],
+          "plus_one_gain": -0.10082432905737693,
+          "yield_gain": -0.09779506546839523,
+          "passes_gate": false
+        },
+        "doob_1": {
+          "mean_acceptance": 2.558399263000203,
+          "mean_yield": 3.466521009287232,
+          "acceptance_gain": -0.29743407033312996,
+          "acceptance_gain_ci": [
+            -0.34421529180957067,
+            -0.25257283990919266
+          ],
+          "plus_one_gain": -0.07713872582661685,
+          "yield_gain": -0.07477197261016955,
+          "passes_gate": false
+        },
+        "doob_10": {
+          "mean_acceptance": 2.611038285356989,
+          "mean_yield": 3.5162760589380304,
+          "acceptance_gain": -0.2447950479763441,
+          "acceptance_gain_ci": [
+            -0.28778672118848997,
+            -0.2024055069328749
+          ],
+          "plus_one_gain": -0.0634869370156933,
+          "yield_gain": -0.06149215508771455,
+          "passes_gate": false
+        },
+        "doob_100": {
+          "mean_acceptance": 2.6200030243032812,
+          "mean_yield": 3.524772593051031,
+          "acceptance_gain": -0.23583030903005175,
+          "acceptance_gain_ci": [
+            -0.2781317287271443,
+            -0.19417266197826097
+          ],
+          "plus_one_gain": -0.06116195609164943,
+          "yield_gain": -0.059224396872500806,
+          "passes_gate": false
+        },
+        "temperature_0.5": {
+          "mean_acceptance": 2.7369747744976256,
+          "mean_yield": 3.6380472985635994,
+          "acceptance_gain": -0.1188585588357074,
+          "acceptance_gain_ci": [
+            -0.15442375429910077,
+            -0.08608555429723475
+          ],
+          "plus_one_gain": -0.030825647417948798,
+          "yield_gain": -0.028990934547082237,
+          "passes_gate": false
+        },
+        "temperature_0.75": {
+          "mean_acceptance": 2.6042870951421024,
+          "mean_yield": 3.5118839822053523,
+          "acceptance_gain": -0.25154623819123056,
+          "acceptance_gain_ci": [
+            -0.2965789715642395,
+            -0.20795304937989437
+          ],
+          "plus_one_gain": -0.06523784003230537,
+          "yield_gain": -0.06266441756084928,
+          "passes_gate": false
+        },
+        "temperature_1": {
+          "mean_acceptance": 2.428809956216075,
+          "mean_yield": 3.3440082461492184,
+          "acceptance_gain": -0.427023377117258,
+          "acceptance_gain_ci": [
+            -0.4818561352551195,
+            -0.37483323853056555
+          ],
+          "plus_one_gain": -0.11074736385146089,
+          "yield_gain": -0.10747110867903442,
+          "passes_gate": false
+        },
+        "temperature_1.5": {
+          "mean_acceptance": 2.00142689120447,
+          "mean_yield": 2.933768507917057,
+          "acceptance_gain": -0.8544064421288629,
+          "acceptance_gain_ci": [
+            -0.9246893094549815,
+            -0.7852055382612089
+          ],
+          "plus_one_gain": -0.22158801179049825,
+          "yield_gain": -0.21696570073388177,
+          "passes_gate": false
+        }
+      },
+      "per_domain": {
+        "math": {
+          "native": {
+            "mean_acceptance": 3.69,
+            "mean_yield": 4.575
+          },
+          "prefix_dp": {
+            "mean_acceptance": 3.6625,
+            "mean_yield": 4.5475
+          },
+          "full_path": {
+            "mean_acceptance": 3.6725,
+            "mean_yield": 4.5575
+          },
+          "oracle": {
+            "mean_acceptance": 5.355,
+            "mean_yield": 6.2375
+          },
+          "doob_0": {
+            "mean_acceptance": 3.2996272788486016,
+            "mean_yield": 4.195989054799372
+          },
+          "doob_0.1": {
+            "mean_acceptance": 3.3420597812680057,
+            "mean_yield": 4.236969723008978
+          },
+          "doob_1": {
+            "mean_acceptance": 3.4282186657876634,
+            "mean_yield": 4.320103984151184
+          },
+          "doob_10": {
+            "mean_acceptance": 3.4697020579667077,
+            "mean_yield": 4.360113409407217
+          },
+          "doob_100": {
+            "mean_acceptance": 3.4762053951318865,
+            "mean_yield": 4.366382627952706
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 3.6055352553602757,
+            "mean_yield": 4.493891371208396
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 3.480526829345073,
+            "mean_yield": 4.371999747156862
+          },
+          "temperature_1": {
+            "mean_acceptance": 3.299627278848602,
+            "mean_yield": 4.195989054799372
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 2.7981496963997223,
+            "mean_yield": 3.7105161533084807
+          }
+        },
+        "code": {
+          "native": {
+            "mean_acceptance": 2.885,
+            "mean_yield": 3.7675
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.9075,
+            "mean_yield": 3.79
+          },
+          "full_path": {
+            "mean_acceptance": 2.915,
+            "mean_yield": 3.8
+          },
+          "oracle": {
+            "mean_acceptance": 5.0125,
+            "mean_yield": 5.8875
+          },
+          "doob_0": {
+            "mean_acceptance": 2.3784916070247046,
+            "mean_yield": 3.2934150499077868
+          },
+          "doob_0.1": {
+            "mean_acceptance": 2.422763999904297,
+            "mean_yield": 3.3347847829802486
+          },
+          "doob_1": {
+            "mean_acceptance": 2.5303795284419133,
+            "mean_yield": 3.4352597125500184
+          },
+          "doob_10": {
+            "mean_acceptance": 2.59042350326525,
+            "mean_yield": 3.4914542016883003
+          },
+          "doob_100": {
+            "mean_acceptance": 2.6001612316134164,
+            "mean_yield": 3.5005901454245576
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.730048416991723,
+            "mean_yield": 3.6259076509094554
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 2.574611376248384,
+            "mean_yield": 3.479306567643452
+          },
+          "temperature_1": {
+            "mean_acceptance": 2.3784916070247046,
+            "mean_yield": 3.2934150499077868
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.9223329055089977,
+            "mean_yield": 2.8586696841332353
+          }
+        },
+        "general_instructions": {
+          "native": {
+            "mean_acceptance": 1.9925,
+            "mean_yield": 2.8975
+          },
+          "prefix_dp": {
+            "mean_acceptance": 1.9625,
+            "mean_yield": 2.87
+          },
+          "full_path": {
+            "mean_acceptance": 1.955,
+            "mean_yield": 2.865
+          },
+          "oracle": {
+            "mean_acceptance": 4.205,
+            "mean_yield": 5.09
+          },
+          "doob_0": {
+            "mean_acceptance": 1.60831098277492,
+            "mean_yield": 2.542620633740497
+          },
+          "doob_0.1": {
+            "mean_acceptance": 1.6363907924564882,
+            "mean_yield": 2.569028958146013
+          },
+          "doob_1": {
+            "mean_acceptance": 1.7165995947710329,
+            "mean_yield": 2.6441993311604937
+          },
+          "doob_10": {
+            "mean_acceptance": 1.7729892948390087,
+            "mean_yield": 2.697260565718575
+          },
+          "doob_100": {
+            "mean_acceptance": 1.78364244616454,
+            "mean_yield": 2.7073450057758297
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 1.875340651140877,
+            "mean_yield": 2.7943428735729485
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 1.7577230798328503,
+            "mean_yield": 2.684345631815743
+          },
+          "temperature_1": {
+            "mean_acceptance": 1.60831098277492,
+            "mean_yield": 2.542620633740497
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.2837980717046888,
+            "mean_yield": 2.2321196863094563
+          }
+        }
+      },
+      "prefix_survival": {
+        "native": [
+          0.8291666666666667,
+          0.615,
+          0.45416666666666666,
+          0.345,
+          0.2575,
+          0.20083333333333334,
+          0.15416666666666667
+        ],
+        "prefix_dp": [
+          0.8266666666666667,
+          0.6058333333333333,
+          0.45,
+          0.3425,
+          0.25916666666666666,
+          0.20333333333333334,
+          0.15666666666666668
+        ],
+        "full_path": [
+          0.8216666666666667,
+          0.6066666666666667,
+          0.45416666666666666,
+          0.33916666666666667,
+          0.26166666666666666,
+          0.205,
+          0.15916666666666668
+        ],
+        "oracle": [
+          0.9875,
+          0.9016666666666666,
+          0.8016666666666666,
+          0.705,
+          0.5691666666666667,
+          0.485,
+          0.4075
+        ],
+        "doob_0": [
+          0.7681667464568377,
+          0.53489267472588,
+          0.3779773067919538,
+          0.2745406224808292,
+          0.20488794723411835,
+          0.1557401109827714,
+          0.1126045475436846
+        ],
+        "doob_0.1": [
+          0.7748005304877966,
+          0.542274790633726,
+          0.38518512650510417,
+          0.2805461407865998,
+          0.20974445809153294,
+          0.159392018289958,
+          0.11512845974821233
+        ],
+        "doob_1": [
+          0.7942848698662666,
+          0.5626074527078911,
+          0.4026848572339802,
+          0.2937549543594978,
+          0.2196122375065633,
+          0.16601991857635678,
+          0.11943497274964746
+        ],
+        "doob_10": [
+          0.8086212477255766,
+          0.5756714386954496,
+          0.41230452350025226,
+          0.30037149055181434,
+          0.22420139157664,
+          0.16874402896751606,
+          0.12112416433973992
+        ],
+        "doob_100": [
+          0.8113720847253698,
+          0.5779630738920516,
+          0.41385887336184013,
+          0.3014055123854383,
+          0.2248992140054912,
+          0.16913764995758915,
+          0.12136661597550046
+        ],
+        "temperature_0.5": [
+          0.8120184929064324,
+          0.5900169107819567,
+          0.4322090608003634,
+          0.3238420132307828,
+          0.2451505581090592,
+          0.19070147809709442,
+          0.14303626057193594
+        ],
+        "temperature_0.75": [
+          0.7935505133230243,
+          0.5664933583977699,
+          0.408908489469867,
+          0.3023303850826937,
+          0.2279298385945348,
+          0.17569716807647986,
+          0.12937734219773347
+        ],
+        "temperature_1": [
+          0.7681667464568377,
+          0.53489267472588,
+          0.3779773067919538,
+          0.2745406224808292,
+          0.20488794723411835,
+          0.1557401109827714,
+          0.1126045475436846
+        ],
+        "temperature_1.5": [
+          0.7021031064239358,
+          0.4555958179117591,
+          0.30248701135400435,
+          0.2089643696326487,
+          0.14933464318072165,
+          0.10847579635433104,
+          0.07446614634706966
+        ]
+      },
+      "dp_changed_contexts": 181,
+      "dp_changed_delta_positive": 20,
+      "dp_changed_delta_zero": 130,
+      "dp_changed_delta_negative": 31,
+      "dp_changed_delta_mean": -0.07734806629834254,
+      "mean_covariance": 0.5113754409535104
+    },
+    "selection": {
+      "locked_doob": "doob_100",
+      "locked_temperature": "temperature_0.5",
+      "survivors": [],
+      "selected_on": "discovery",
+      "assessed_on": "validation"
+    }
+  },
+  "calibration": {
+    "temperature": 1.1567380502772315,
+    "coverage": [
+      0.9841666666666666,
+      0.9503051438535309,
+      0.907177033492823,
+      0.8850698174006445,
+      0.8473091364205256,
+      0.8945783132530121,
+      0.8313458262350937
+    ],
+    "eligible": [
+      1200,
+      1147,
+      1045,
+      931,
+      799,
+      664,
+      587
+    ],
+    "covered": [
+      1181,
+      1090,
+      948,
+      824,
+      677,
+      594,
+      488
+    ],
+    "covered_labels": 5802,
+    "nll": 0.6846649308121413,
+    "temperature_bounds": [
+      0.05,
+      20.0
+    ],
+    "fit_split": "discovery"
+  },
+  "calibrated": {
+    "discovery": {
+      "prompts": 150,
+      "retained_graphs": 1200,
+      "methods": {
+        "native": {
+          "mean_acceptance": 2.8508333333333336,
+          "mean_yield": 3.7441666666666666,
+          "acceptance_gain": 0.0,
+          "acceptance_gain_ci": [
+            0.0,
+            0.0
+          ],
+          "plus_one_gain": 0.0,
+          "yield_gain": 0.0,
+          "passes_gate": false
+        },
+        "prefix_dp": {
+          "mean_acceptance": 2.8925,
+          "mean_yield": 3.7866666666666666,
+          "acceptance_gain": 0.04166666666666652,
+          "acceptance_gain_ci": [
+            0.0066666666666663765,
+            0.07500000000000018
+          ],
+          "plus_one_gain": 0.010820168794633211,
+          "yield_gain": 0.011350990429557006,
+          "passes_gate": false
+        },
+        "full_path": {
+          "mean_acceptance": 2.855,
+          "mean_yield": 3.748333333333333,
+          "acceptance_gain": 0.00416666666666643,
+          "acceptance_gain_ci": [
+            -0.03502083333333386,
+            0.043333333333333
+          ],
+          "plus_one_gain": 0.001082016879463188,
+          "yield_gain": 0.0011128421989761161,
+          "passes_gate": false
+        },
+        "oracle": {
+          "mean_acceptance": 4.835,
+          "mean_yield": 5.713333333333334,
+          "acceptance_gain": 1.9841666666666664,
+          "acceptance_gain_ci": [
+            1.866645833333333,
+            2.105020833333333
+          ],
+          "plus_one_gain": 0.5152564380004327,
+          "yield_gain": 0.5259292232361452,
+          "passes_gate": true
+        },
+        "doob_0": {
+          "mean_acceptance": 2.403515469916098,
+          "mean_yield": 3.3206565861814954,
+          "acceptance_gain": -0.44731786341723545,
+          "acceptance_gain_ci": [
+            -0.5067089398578458,
+            -0.3916568663513333
+          ],
+          "plus_one_gain": -0.11616131488869996,
+          "yield_gain": -0.1131119734213678,
+          "passes_gate": false
+        },
+        "doob_0.1": {
+          "mean_acceptance": 2.429142713147398,
+          "mean_yield": 3.3449211560306717,
+          "acceptance_gain": -0.4216906201859354,
+          "acceptance_gain_ci": [
+            -0.4800765935368402,
+            -0.3677195214787116
+          ],
+          "plus_one_gain": -0.10950632854860909,
+          "yield_gain": -0.10663134047700729,
+          "passes_gate": false
+        },
+        "doob_1": {
+          "mean_acceptance": 2.5017878984019544,
+          "mean_yield": 3.413480501509174,
+          "acceptance_gain": -0.3490454349313792,
+          "acceptance_gain_ci": [
+            -0.40242504788847605,
+            -0.30142651414621197
+          ],
+          "plus_one_gain": -0.09064153255088836,
+          "yield_gain": -0.08832036460916781,
+          "passes_gate": false
+        },
+        "doob_10": {
+          "mean_acceptance": 2.551280741759425,
+          "mean_yield": 3.4601564646852,
+          "acceptance_gain": -0.29955259157390834,
+          "acceptance_gain_ci": [
+            -0.3498021030788538,
+            -0.2542388044513673
+          ],
+          "plus_one_gain": -0.07778903048878816,
+          "yield_gain": -0.07585404904913418,
+          "passes_gate": false
+        },
+        "doob_100": {
+          "mean_acceptance": 2.560712815598855,
+          "mean_yield": 3.4690791644346484,
+          "acceptance_gain": -0.29012051773447833,
+          "acceptance_gain_ci": [
+            -0.3395869825135734,
+            -0.24501929662781813
+          ],
+          "plus_one_gain": -0.0753396713441623,
+          "yield_gain": -0.07347095541473891,
+          "passes_gate": false
+        },
+        "temperature_0.5": {
+          "mean_acceptance": 2.712563930789788,
+          "mean_yield": 3.614970555332633,
+          "acceptance_gain": -0.13826940254354536,
+          "acceptance_gain_ci": [
+            -0.1755226589954962,
+            -0.10288839358220064
+          ],
+          "plus_one_gain": -0.03590635859170188,
+          "yield_gain": -0.03450597231267316,
+          "passes_gate": false
+        },
+        "temperature_0.75": {
+          "mean_acceptance": 2.5759266325773864,
+          "mean_yield": 3.4850814555062555,
+          "acceptance_gain": -0.27490670075594714,
+          "acceptance_gain_ci": [
+            -0.3256468111367649,
+            -0.2295189287216918
+          ],
+          "plus_one_gain": -0.07138888571892155,
+          "yield_gain": -0.06919702946639072,
+          "passes_gate": false
+        },
+        "temperature_1": {
+          "mean_acceptance": 2.403515469916098,
+          "mean_yield": 3.3206565861814954,
+          "acceptance_gain": -0.44731786341723545,
+          "acceptance_gain_ci": [
+            -0.5067089398578458,
+            -0.3916568663513333
+          ],
+          "plus_one_gain": -0.11616131488869996,
+          "yield_gain": -0.1131119734213678,
+          "passes_gate": false
+        },
+        "temperature_1.5": {
+          "mean_acceptance": 1.98939040936947,
+          "mean_yield": 2.923915211983703,
+          "acceptance_gain": -0.8614429239638635,
+          "acceptance_gain_ci": [
+            -0.9383604121426874,
+            -0.7864584872106631
+          ],
+          "plus_one_gain": -0.22370298826155288,
+          "yield_gain": -0.21907450381027294,
+          "passes_gate": false
+        }
+      },
+      "per_domain": {
+        "math": {
+          "native": {
+            "mean_acceptance": 3.6525,
+            "mean_yield": 4.54
+          },
+          "prefix_dp": {
+            "mean_acceptance": 3.675,
+            "mean_yield": 4.5625
+          },
+          "full_path": {
+            "mean_acceptance": 3.6,
+            "mean_yield": 4.4875
+          },
+          "oracle": {
+            "mean_acceptance": 5.5075,
+            "mean_yield": 6.39
+          },
+          "doob_0": {
+            "mean_acceptance": 3.162200583105024,
+            "mean_yield": 4.065962065483884
+          },
+          "doob_0.1": {
+            "mean_acceptance": 3.191971981772278,
+            "mean_yield": 4.094742902206154
+          },
+          "doob_1": {
+            "mean_acceptance": 3.2676920833933396,
+            "mean_yield": 4.167787048999884
+          },
+          "doob_10": {
+            "mean_acceptance": 3.3128578046449917,
+            "mean_yield": 4.211350770283792
+          },
+          "doob_100": {
+            "mean_acceptance": 3.3211369270510676,
+            "mean_yield": 4.219366444219567
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 3.4906782273956627,
+            "mean_yield": 4.384345105834225
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 3.351152253657951,
+            "mean_yield": 4.249239721319141
+          },
+          "temperature_1": {
+            "mean_acceptance": 3.162200583105024,
+            "mean_yield": 4.065962065483884
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 2.6537452587003663,
+            "mean_yield": 3.5723686763069677
+          }
+        },
+        "code": {
+          "native": {
+            "mean_acceptance": 2.715,
+            "mean_yield": 3.6025
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.78,
+            "mean_yield": 3.67
+          },
+          "full_path": {
+            "mean_acceptance": 2.8025,
+            "mean_yield": 3.695
+          },
+          "oracle": {
+            "mean_acceptance": 5.04,
+            "mean_yield": 5.9175
+          },
+          "doob_0": {
+            "mean_acceptance": 2.2817016424174668,
+            "mean_yield": 3.2046073618115627
+          },
+          "doob_0.1": {
+            "mean_acceptance": 2.3063998183060628,
+            "mean_yield": 3.2274118672853507
+          },
+          "doob_1": {
+            "mean_acceptance": 2.3767276843091922,
+            "mean_yield": 3.292082785329604
+          },
+          "doob_10": {
+            "mean_acceptance": 2.4223556766050818,
+            "mean_yield": 3.3339591353665217
+          },
+          "doob_100": {
+            "mean_acceptance": 2.430436269690185,
+            "mean_yield": 3.3413730753079744
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.592201010611682,
+            "mean_yield": 3.494727688374533
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 2.453524847391747,
+            "mean_yield": 3.365782970737683
+          },
+          "temperature_1": {
+            "mean_acceptance": 2.2817016424174668,
+            "mean_yield": 3.2046073618115627
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.8823903954202499,
+            "mean_yield": 2.825801312910501
+          }
+        },
+        "general_instructions": {
+          "native": {
+            "mean_acceptance": 2.185,
+            "mean_yield": 3.09
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.2225,
+            "mean_yield": 3.1275
+          },
+          "full_path": {
+            "mean_acceptance": 2.1625,
+            "mean_yield": 3.0625
+          },
+          "oracle": {
+            "mean_acceptance": 3.9575,
+            "mean_yield": 4.8325
+          },
+          "doob_0": {
+            "mean_acceptance": 1.766644184225805,
+            "mean_yield": 2.6914003312490387
+          },
+          "doob_0.1": {
+            "mean_acceptance": 1.789056339363853,
+            "mean_yield": 2.712608698600511
+          },
+          "doob_1": {
+            "mean_acceptance": 1.8609439275033308,
+            "mean_yield": 2.780571670198033
+          },
+          "doob_10": {
+            "mean_acceptance": 1.9186287440282015,
+            "mean_yield": 2.8351594884052833
+          },
+          "doob_100": {
+            "mean_acceptance": 1.9305652500553157,
+            "mean_yield": 2.8464979737764042
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.0548125543620217,
+            "mean_yield": 2.9658388717891415
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 1.923102796682462,
+            "mean_yield": 2.840221674461944
+          },
+          "temperature_1": {
+            "mean_acceptance": 1.766644184225805,
+            "mean_yield": 2.6914003312490387
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.4320355739877946,
+            "mean_yield": 2.3735756467336393
+          }
+        }
+      },
+      "prefix_survival": {
+        "native": [
+          0.8125,
+          0.6066666666666667,
+          0.4558333333333333,
+          0.3525,
+          0.2658333333333333,
+          0.20333333333333334,
+          0.15416666666666667
+        ],
+        "prefix_dp": [
+          0.8158333333333333,
+          0.6141666666666666,
+          0.4633333333333333,
+          0.3591666666666667,
+          0.2733333333333333,
+          0.2075,
+          0.15916666666666668
+        ],
+        "full_path": [
+          0.8075,
+          0.6041666666666666,
+          0.45416666666666666,
+          0.35333333333333333,
+          0.27,
+          0.2075,
+          0.15833333333333333
+        ],
+        "oracle": [
+          0.9841666666666666,
+          0.9083333333333333,
+          0.79,
+          0.6866666666666666,
+          0.5641666666666667,
+          0.495,
+          0.4066666666666667
+        ],
+        "doob_0": [
+          0.7628490886925998,
+          0.5350570846804094,
+          0.37685752235738057,
+          0.27866257783188497,
+          0.19720242204686822,
+          0.14447369526464002,
+          0.10841307904231551
+        ],
+        "doob_0.1": [
+          0.767131873984871,
+          0.540136405889701,
+          0.38166566139138725,
+          0.2828798356936432,
+          0.20040296730789461,
+          0.14682263444036134,
+          0.11010333443953887
+        ],
+        "doob_1": [
+          0.7817761886180222,
+          0.5563815802781158,
+          0.39549574859033154,
+          0.29389203982707635,
+          0.20817493155591169,
+          0.15224797253507713,
+          0.11381943699741956
+        ],
+        "doob_10": [
+          0.794686458630931,
+          0.5688151772878343,
+          0.4046397272737188,
+          0.30031797495081175,
+          0.21231624619262224,
+          0.1549806990106863,
+          0.11552445841282062
+        ],
+        "doob_100": [
+          0.7975576213024331,
+          0.5712926980954348,
+          0.4062949067684951,
+          0.3014038518855518,
+          0.21298420920836467,
+          0.1554085870365447,
+          0.11577094130203212
+        ],
+        "temperature_0.5": [
+          0.7990959579685839,
+          0.5862675090205994,
+          0.43242595026235714,
+          0.3299454331454602,
+          0.24321149254453014,
+          0.18269004066948558,
+          0.13892754717877176
+        ],
+        "temperature_0.75": [
+          0.7840753299070367,
+          0.5642129195255039,
+          0.40779957603805833,
+          0.30725090381719444,
+          0.22215404140604866,
+          0.16521509643715593,
+          0.125218765446389
+        ],
+        "temperature_1": [
+          0.7628490886925997,
+          0.5350570846804094,
+          0.37685752235738057,
+          0.27866257783188497,
+          0.19720242204686822,
+          0.14447369526464002,
+          0.10841307904231551
+        ],
+        "temperature_1.5": [
+          0.7032672152096608,
+          0.45961170776985494,
+          0.3029501053834429,
+          0.21164318887255096,
+          0.1420981890463062,
+          0.0987411816151028,
+          0.07107882147255178
+        ]
+      },
+      "dp_changed_contexts": 194,
+      "dp_changed_delta_positive": 39,
+      "dp_changed_delta_zero": 126,
+      "dp_changed_delta_negative": 29,
+      "dp_changed_delta_mean": 0.25773195876288657,
+      "mean_covariance": 0.32126186709465193
+    },
+    "validation": {
+      "prompts": 150,
+      "retained_graphs": 1200,
+      "methods": {
+        "native": {
+          "mean_acceptance": 2.855833333333333,
+          "mean_yield": 3.7466666666666675,
+          "acceptance_gain": 0.0,
+          "acceptance_gain_ci": [
+            0.0,
+            0.0
+          ],
+          "plus_one_gain": 0.0,
+          "yield_gain": 0.0,
+          "passes_gate": false
+        },
+        "prefix_dp": {
+          "mean_acceptance": 2.841666666666667,
+          "mean_yield": 3.734166666666667,
+          "acceptance_gain": -0.014166666666666217,
+          "acceptance_gain_ci": [
+            -0.05416666666666625,
+            0.02416666666666647
+          ],
+          "plus_one_gain": -0.003674086881348515,
+          "yield_gain": -0.0033362989323845182,
+          "passes_gate": false
+        },
+        "full_path": {
+          "mean_acceptance": 2.8475,
+          "mean_yield": 3.7408333333333332,
+          "acceptance_gain": -0.00833333333333286,
+          "acceptance_gain_ci": [
+            -0.05999999999999961,
+            0.040833333333333055
+          ],
+          "plus_one_gain": -0.00216122757726378,
+          "yield_gain": -0.0015569395017795973,
+          "passes_gate": false
+        },
+        "oracle": {
+          "mean_acceptance": 4.8575,
+          "mean_yield": 5.738333333333333,
+          "acceptance_gain": 2.001666666666667,
+          "acceptance_gain_ci": [
+            1.9025000000000003,
+            2.1016875
+          ],
+          "plus_one_gain": 0.5191268640587856,
+          "yield_gain": 0.5315836298932382,
+          "passes_gate": true
+        },
+        "doob_0": {
+          "mean_acceptance": 2.428809956216075,
+          "mean_yield": 3.3440082461492184,
+          "acceptance_gain": -0.427023377117258,
+          "acceptance_gain_ci": [
+            -0.4818561352551195,
+            -0.37483323853056555
+          ],
+          "plus_one_gain": -0.11074736385146089,
+          "yield_gain": -0.10747110867903442,
+          "passes_gate": false
+        },
+        "doob_0.1": {
+          "mean_acceptance": 2.4556914661831937,
+          "mean_yield": 3.3694777478790363,
+          "acceptance_gain": -0.40014186715013933,
+          "acceptance_gain_ci": [
+            -0.4531151905866366,
+            -0.3499275106567096
+          ],
+          "plus_one_gain": -0.1037757165723292,
+          "yield_gain": -0.1006731989646702,
+          "passes_gate": false
+        },
+        "doob_1": {
+          "mean_acceptance": 2.5327208085828996,
+          "mean_yield": 3.442237887912999,
+          "acceptance_gain": -0.3231125247504334,
+          "acceptance_gain_ci": [
+            -0.37174025510595393,
+            -0.2766252070952685
+          ],
+          "plus_one_gain": -0.0837983638859996,
+          "yield_gain": -0.08125323276343455,
+          "passes_gate": false
+        },
+        "doob_10": {
+          "mean_acceptance": 2.585898971887189,
+          "mean_yield": 3.492461160931367,
+          "acceptance_gain": -0.2699343614461438,
+          "acceptance_gain_ci": [
+            -0.31508214040252486,
+            -0.2260365150757996
+          ],
+          "plus_one_gain": -0.07000675032102277,
+          "yield_gain": -0.06784844459127237,
+          "passes_gate": false
+        },
+        "doob_100": {
+          "mean_acceptance": 2.5958728585184394,
+          "mean_yield": 3.5019039346925935,
+          "acceptance_gain": -0.2599604748148936,
+          "acceptance_gain_ci": [
+            -0.3043538109324312,
+            -0.21654415347587294
+          ],
+          "plus_one_gain": -0.06742004966022741,
+          "yield_gain": -0.06532813130980619,
+          "passes_gate": false
+        },
+        "temperature_0.5": {
+          "mean_acceptance": 2.7369747744976256,
+          "mean_yield": 3.6380472985635994,
+          "acceptance_gain": -0.1188585588357074,
+          "acceptance_gain_ci": [
+            -0.15442375429910077,
+            -0.08608555429723475
+          ],
+          "plus_one_gain": -0.030825647417948798,
+          "yield_gain": -0.028990934547082237,
+          "passes_gate": false
+        },
+        "temperature_0.75": {
+          "mean_acceptance": 2.6042870951421024,
+          "mean_yield": 3.5118839822053523,
+          "acceptance_gain": -0.25154623819123056,
+          "acceptance_gain_ci": [
+            -0.2965789715642395,
+            -0.20795304937989437
+          ],
+          "plus_one_gain": -0.06523784003230537,
+          "yield_gain": -0.06266441756084928,
+          "passes_gate": false
+        },
+        "temperature_1": {
+          "mean_acceptance": 2.428809956216075,
+          "mean_yield": 3.3440082461492184,
+          "acceptance_gain": -0.427023377117258,
+          "acceptance_gain_ci": [
+            -0.4818561352551195,
+            -0.37483323853056555
+          ],
+          "plus_one_gain": -0.11074736385146089,
+          "yield_gain": -0.10747110867903442,
+          "passes_gate": false
+        },
+        "temperature_1.5": {
+          "mean_acceptance": 2.00142689120447,
+          "mean_yield": 2.933768507917057,
+          "acceptance_gain": -0.8544064421288629,
+          "acceptance_gain_ci": [
+            -0.9246893094549815,
+            -0.7852055382612089
+          ],
+          "plus_one_gain": -0.22158801179049825,
+          "yield_gain": -0.21696570073388177,
+          "passes_gate": false
+        }
+      },
+      "per_domain": {
+        "math": {
+          "native": {
+            "mean_acceptance": 3.69,
+            "mean_yield": 4.575
+          },
+          "prefix_dp": {
+            "mean_acceptance": 3.68,
+            "mean_yield": 4.565
+          },
+          "full_path": {
+            "mean_acceptance": 3.6725,
+            "mean_yield": 4.5575
+          },
+          "oracle": {
+            "mean_acceptance": 5.355,
+            "mean_yield": 6.2375
+          },
+          "doob_0": {
+            "mean_acceptance": 3.2996272788486016,
+            "mean_yield": 4.195989054799372
+          },
+          "doob_0.1": {
+            "mean_acceptance": 3.3292837970668874,
+            "mean_yield": 4.2245974314951384
+          },
+          "doob_1": {
+            "mean_acceptance": 3.4029602470514844,
+            "mean_yield": 4.295629475876122
+          },
+          "doob_10": {
+            "mean_acceptance": 3.4455334780578126,
+            "mean_yield": 4.336672395497714
+          },
+          "doob_100": {
+            "mean_acceptance": 3.452811412969134,
+            "mean_yield": 4.34368701212938
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 3.6055352553602757,
+            "mean_yield": 4.493891371208396
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 3.480526829345073,
+            "mean_yield": 4.371999747156862
+          },
+          "temperature_1": {
+            "mean_acceptance": 3.299627278848602,
+            "mean_yield": 4.195989054799372
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 2.7981496963997223,
+            "mean_yield": 3.7105161533084807
+          }
+        },
+        "code": {
+          "native": {
+            "mean_acceptance": 2.885,
+            "mean_yield": 3.7675
+          },
+          "prefix_dp": {
+            "mean_acceptance": 2.8825,
+            "mean_yield": 3.7675
+          },
+          "full_path": {
+            "mean_acceptance": 2.915,
+            "mean_yield": 3.8
+          },
+          "oracle": {
+            "mean_acceptance": 5.0125,
+            "mean_yield": 5.8875
+          },
+          "doob_0": {
+            "mean_acceptance": 2.3784916070247046,
+            "mean_yield": 3.2934150499077868
+          },
+          "doob_0.1": {
+            "mean_acceptance": 2.4096236186617137,
+            "mean_yield": 3.3225006676789626
+          },
+          "doob_1": {
+            "mean_acceptance": 2.5002526438476353,
+            "mean_yield": 3.4070184288512873
+          },
+          "doob_10": {
+            "mean_acceptance": 2.560974444089016,
+            "mean_yield": 3.4636951079451763
+          },
+          "doob_100": {
+            "mean_acceptance": 2.5717784938022312,
+            "mean_yield": 3.4737975936272614
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 2.730048416991723,
+            "mean_yield": 3.6259076509094554
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 2.574611376248384,
+            "mean_yield": 3.479306567643452
+          },
+          "temperature_1": {
+            "mean_acceptance": 2.3784916070247046,
+            "mean_yield": 3.2934150499077868
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.9223329055089977,
+            "mean_yield": 2.8586696841332353
+          }
+        },
+        "general_instructions": {
+          "native": {
+            "mean_acceptance": 1.9925,
+            "mean_yield": 2.8975
+          },
+          "prefix_dp": {
+            "mean_acceptance": 1.9625,
+            "mean_yield": 2.87
+          },
+          "full_path": {
+            "mean_acceptance": 1.955,
+            "mean_yield": 2.865
+          },
+          "oracle": {
+            "mean_acceptance": 4.205,
+            "mean_yield": 5.09
+          },
+          "doob_0": {
+            "mean_acceptance": 1.60831098277492,
+            "mean_yield": 2.542620633740497
+          },
+          "doob_0.1": {
+            "mean_acceptance": 1.62816698282098,
+            "mean_yield": 2.5613351444630057
+          },
+          "doob_1": {
+            "mean_acceptance": 1.6949495348495793,
+            "mean_yield": 2.624065759011588
+          },
+          "doob_10": {
+            "mean_acceptance": 1.751188993514738,
+            "mean_yield": 2.6770159793512125
+          },
+          "doob_100": {
+            "mean_acceptance": 1.763028668783952,
+            "mean_yield": 2.6882271983211394
+          },
+          "temperature_0.5": {
+            "mean_acceptance": 1.875340651140877,
+            "mean_yield": 2.7943428735729485
+          },
+          "temperature_0.75": {
+            "mean_acceptance": 1.7577230798328503,
+            "mean_yield": 2.684345631815743
+          },
+          "temperature_1": {
+            "mean_acceptance": 1.60831098277492,
+            "mean_yield": 2.542620633740497
+          },
+          "temperature_1.5": {
+            "mean_acceptance": 1.2837980717046888,
+            "mean_yield": 2.2321196863094563
+          }
+        }
+      },
+      "prefix_survival": {
+        "native": [
+          0.8291666666666667,
+          0.615,
+          0.45416666666666666,
+          0.345,
+          0.2575,
+          0.20083333333333334,
+          0.15416666666666667
+        ],
+        "prefix_dp": [
+          0.8266666666666667,
+          0.605,
+          0.4508333333333333,
+          0.3416666666666667,
+          0.25916666666666666,
+          0.2025,
+          0.15583333333333332
+        ],
+        "full_path": [
+          0.8216666666666667,
+          0.6066666666666667,
+          0.45416666666666666,
+          0.33916666666666667,
+          0.26166666666666666,
+          0.205,
+          0.15916666666666668
+        ],
+        "oracle": [
+          0.9875,
+          0.9016666666666666,
+          0.8016666666666666,
+          0.705,
+          0.5691666666666667,
+          0.485,
+          0.4075
+        ],
+        "doob_0": [
+          0.7681667464568377,
+          0.53489267472588,
+          0.3779773067919538,
+          0.2745406224808292,
+          0.20488794723411835,
+          0.1557401109827714,
+          0.1126045475436846
+        ],
+        "doob_0.1": [
+          0.7732638270334491,
+          0.5403997674087418,
+          0.3830996725134237,
+          0.2786257654059811,
+          0.20808398609813752,
+          0.158059062779498,
+          0.11415938494396267
+        ],
+        "doob_1": [
+          0.7907730743000225,
+          0.5580569615141585,
+          0.397795822041529,
+          0.28938080038313685,
+          0.21597688304226495,
+          0.1632735226742263,
+          0.11746374462756179
+        ],
+        "doob_10": [
+          0.8059393143167914,
+          0.571473733995894,
+          0.4073951736196734,
+          0.2958018172702377,
+          0.2203872463341995,
+          0.16587144529593367,
+          0.1190302410544593
+        ],
+        "doob_100": [
+          0.8091502338002491,
+          0.5740635869831765,
+          0.4090892291122325,
+          0.29689564201060303,
+          0.22111961380733103,
+          0.1662798028327688,
+          0.119274749972078
+        ],
+        "temperature_0.5": [
+          0.8120184929064324,
+          0.5900169107819567,
+          0.4322090608003634,
+          0.3238420132307828,
+          0.2451505581090592,
+          0.19070147809709442,
+          0.14303626057193594
+        ],
+        "temperature_0.75": [
+          0.7935505133230243,
+          0.5664933583977699,
+          0.408908489469867,
+          0.3023303850826937,
+          0.2279298385945348,
+          0.17569716807647986,
+          0.12937734219773347
+        ],
+        "temperature_1": [
+          0.7681667464568377,
+          0.53489267472588,
+          0.3779773067919538,
+          0.2745406224808292,
+          0.20488794723411835,
+          0.1557401109827714,
+          0.1126045475436846
+        ],
+        "temperature_1.5": [
+          0.7021031064239358,
+          0.4555958179117591,
+          0.30248701135400435,
+          0.2089643696326487,
+          0.14933464318072165,
+          0.10847579635433104,
+          0.07446614634706966
+        ]
+      },
+      "dp_changed_contexts": 195,
+      "dp_changed_delta_positive": 23,
+      "dp_changed_delta_zero": 138,
+      "dp_changed_delta_negative": 34,
+      "dp_changed_delta_mean": -0.08717948717948718,
+      "mean_covariance": 0.33659751791540354
+    },
+    "selection": {
+      "locked_doob": "doob_100",
+      "locked_temperature": "temperature_0.5",
+      "survivors": [],
+      "selected_on": "discovery",
+      "assessed_on": "validation"
+    }
+  },
+  "decision": "no_go_proxy_selection_under_fixed_budget"
+}

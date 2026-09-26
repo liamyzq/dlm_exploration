@@ -1,5 +1,11 @@
 # 003: Frozen-Lattice Prefix-Utility Decoding
 
+Execution status (2026-09-26 UTC): complete through Stage 4, with a scientific
+no-go at the predeclared offline acceptance gate. See the
+[final report](results/FINAL_REPORT.md). Stages 5-6 were not activated; the
+600 final-test prompts remain unused. The planning protocol below is preserved
+for comparison with the observed results.
+
 ## Material Passport
 
 - Origin: the latest [research conversation](https://chatgpt.com/c/6ab6d0b8-eee8-83ea-801a-9bb61f110338), assistant message `24665c55-9393-42ce-a7cd-5d0caf1e3c26`.

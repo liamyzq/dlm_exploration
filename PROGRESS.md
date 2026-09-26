@@ -100,36 +100,29 @@ all tested commits and commands. Two pre-existing untracked P0 drafts remain
 untouched and are not validated R-series entry points.
 
 
-### Idea 003: native integration passed (2026-09-26 UTC)
+### Idea 003: offline scientific no-go (2026-09-26 UTC)
 
-The complete English protocol is in
-[experiments/003_doob_speculative_decoding/PLAN.md](experiments/003_doob_speculative_decoding/PLAN.md).
-The independent CPU reference check passed 200 small lattices and 20,803 paths
-with maximum absolute error 8.33e-16. The pinned cohorts contain 150 discovery,
-150 validation and 600 final-test prompts; their source revisions and exact IDs
-are saved with the idea.
+The [complete English plan](experiments/003_doob_speculative_decoding/PLAN.md)
+has been executed through its conditional calibration and terminal offline
+gate. The [final report](experiments/003_doob_speculative_decoding/results/FINAL_REPORT.md)
+and compact JSON evidence preserve all settings and negative results.
 
-Native DFlash2 and target-only AR now match all 7,353 generated tokens on 20
-discovery prompts under vLLM batch-invariant arithmetic. All 160 retained native
-lattices pass greedy-walk reconstruction and nonterminal boundary accounting
-(2,031 captured rounds, including 40 post-terminal proposals). This validates
-the interface. The earlier default-arithmetic pilot matched only 9/20 prompts
-and is preserved as invalid evidence; see the compute record for startup repairs.
+Observation: all 300 paired native/AR prompts agree on 122,344 generated tokens,
+and all 2,400 retained graphs pass reconstruction. Validation candidate coverage
+permits 51.91% oracle plus-one headroom. Prefix-DP's mean acceptance gain is
+-0.0117 tokens (95% CI [-0.0475, 0.0250]) for c=q and -0.0142
+([-0.0542, 0.0242]) after the one discovery-only fit. Selected Doob strength 100
+is below native by 0.2358 and 0.2600 tokens, respectively. Small positive DP
+effects on discovery are retained but do not transfer to pooled validation.
 
-Nebula capacity is now available. Two deployment prompts match the validated
-Orion AR reference on all 525 output tokens and 16 retained graphs. Both hosts
-have identical critical package versions and RTX A6000 GPUs. Proceed with the
-complete 300-prompt discovery/validation collection as four parallel single-GPU
-cohorts on Nebula, using the same frozen invariant runtime. Pilot timings imply
-about 1.81 device-hours and 41 minutes elapsed, with a four-device-hour collection
-budget. The earlier Orion schedule submitted no development jobs because its
-GPU capacity changed. These capture timings are operational
-estimates, not speedup evidence. Next, exact offline acceptance and the one
-permitted calibration pass decide whether either selector merits implementation.
-The 600 final-test prompts remain unused until selector lock. No success or
-scientific no-go conclusion has been reached.
+Inference: candidate coverage is sufficient, while these fixed proxies and
+selectors fail to establish useful validation acceptance gain. Doob improves
+over Q sampling but does not outperform native greedy or the selected ordinary
+sharpening control. No proposed selector reaches the 3% engineering gate.
 
-The zero-strength Doob setting is ordinary Q sampling and is reported as a
-control. Before full development collection and any selector-comparison outcome,
-the selection rule was clarified to lock a positive-strength Doob setting on
-discovery; only it and Prefix-DP can advance as proposed methods.
+Decision: close this version as `no_go_proxy_selection_under_fixed_budget`.
+Stages 5-6 are not activated and the 600 final prompts remain unused. This is
+an offline acceptance conclusion, not an observed end-to-end slowdown or a
+universal impossibility result. Any different proxy or budget is a new study.
+Collection used 2.164 device-hours within the four-device-hour ceiling. All
+jobs completed, no experiment workers remain, and long waits used Luna max.

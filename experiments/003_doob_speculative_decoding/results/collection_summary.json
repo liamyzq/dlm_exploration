@@ -1,0 +1,92 @@
+{
+  "003-dev-discovery-ar-v1": {
+    "prompts": 150,
+    "domains": {
+      "math": 50,
+      "code": 50,
+      "general_instructions": 50
+    },
+    "output_tokens": 62637,
+    "finish_reasons": {
+      "stop": 138,
+      "length": 12
+    },
+    "captured_rounds": 0,
+    "retained_graphs": 0,
+    "generation_seconds": 2929.8598714460095,
+    "submitted_at": "2026-09-26T03:17:50.990785+00:00",
+    "completed_at": "2026-09-26T04:07:15.387336+00:00",
+    "wall_seconds": 2964.396551,
+    "exit_code": 0,
+    "job_id": "922040",
+    "gpu": "0"
+  },
+  "003-dev-discovery-native-v1": {
+    "prompts": 150,
+    "domains": {
+      "math": 50,
+      "code": 50,
+      "general_instructions": 50
+    },
+    "output_tokens": 62637,
+    "finish_reasons": {
+      "stop": 138,
+      "length": 12
+    },
+    "captured_rounds": 18147,
+    "retained_graphs": 1200,
+    "generation_seconds": 984.3710238741187,
+    "submitted_at": "2026-09-26T03:17:51.102818+00:00",
+    "completed_at": "2026-09-26T03:35:13.154411+00:00",
+    "wall_seconds": 1042.051593,
+    "exit_code": 0,
+    "job_id": "922108",
+    "gpu": "1"
+  },
+  "003-dev-validation-ar-v1": {
+    "prompts": 150,
+    "domains": {
+      "math": 50,
+      "code": 50,
+      "general_instructions": 50
+    },
+    "output_tokens": 59707,
+    "finish_reasons": {
+      "stop": 140,
+      "length": 10
+    },
+    "captured_rounds": 0,
+    "retained_graphs": 0,
+    "generation_seconds": 2744.3301333949785,
+    "submitted_at": "2026-09-26T03:17:51.163982+00:00",
+    "completed_at": "2026-09-26T04:04:09.774422+00:00",
+    "wall_seconds": 2778.61044,
+    "exit_code": 0,
+    "job_id": "922176",
+    "gpu": "2"
+  },
+  "003-dev-validation-native-v1": {
+    "prompts": 150,
+    "domains": {
+      "math": 50,
+      "code": 50,
+      "general_instructions": 50
+    },
+    "output_tokens": 59707,
+    "finish_reasons": {
+      "stop": 140,
+      "length": 10
+    },
+    "captured_rounds": 17291,
+    "retained_graphs": 1200,
+    "generation_seconds": 948.6392750102095,
+    "submitted_at": "2026-09-26T03:17:51.244653+00:00",
+    "completed_at": "2026-09-26T03:34:35.881862+00:00",
+    "wall_seconds": 1004.637209,
+    "exit_code": 0,
+    "job_id": "922244",
+    "gpu": "3"
+  },
+  "collection_device_hours": 2.1638043869444443,
+  "scope": "Operational collection accounting, including model startup and native graph capture; not comparative speed evidence."
+}
