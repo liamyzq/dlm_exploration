@@ -13,6 +13,8 @@ class CaptureExtension:
         assert type(proposer).__name__ == 'DFlash2Speculator'
         original = proposer._sample_path
         proposer.prefix_capture = None
+        if self.rank != 0:
+            return {'rank': self.rank, 'capture': False}
 
         def observe(this, candidate_ids, scores, num_reqs):
             original(candidate_ids, scores, num_reqs)
@@ -29,13 +31,16 @@ class CaptureExtension:
             })
 
         proposer._sample_path = MethodType(observe, proposer)
-        return {'proposer': type(proposer).__name__, 'length': proposer.num_speculative_steps,
+        return {'rank': self.rank, 'proposer': type(proposer).__name__, 'length': proposer.num_speculative_steps,
                 'width': proposer.selector_top_k}
 
     def begin_lattice_capture(self):
-        self.model_runner.speculator.prefix_capture = []
+        if self.rank == 0:
+            self.model_runner.speculator.prefix_capture = []
 
     def end_lattice_capture(self, path):
+        if self.rank != 0:
+            return {'rank': self.rank, 'rounds': 0, 'path': None}
         proposer = self.model_runner.speculator
         records = proposer.prefix_capture
         proposer.prefix_capture = None

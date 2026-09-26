@@ -11,20 +11,22 @@ import subprocess
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--gpu', type=int, choices=[5, 6, 7, 8])
+    parser.add_argument('--gpu', default='', help='One physical index or comma-separated indices in 0-9.')
     parser.add_argument('--experiment', required=True)
     parser.add_argument('--config', default='')
     parser.add_argument('--output', required=True)
     parser.add_argument('--ledger', required=True)
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
+    if args.gpu and any(int(index) not in range(10) for index in args.gpu.split(',')):
+        parser.error('The authorized physical GPU indices are 0-9.')
     command = args.command[1:] if args.command[:1] == ['--'] else args.command
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     assert not subprocess.check_output(['git', 'status', '--porcelain'], text=True).strip(), 'Use a committed frozen worktree.'
     storage = '/home/mlw0719/cola_dlm_exploration_storage'
     argv = ['env', f'PYTHONPATH={os.getcwd()}', f'HF_HOME={storage}/hf_cache',
             'HF_HUB_DISABLE_PROGRESS_BARS=1', 'VLLM_USE_V2_MODEL_RUNNER=1',
-            f'CUDA_VISIBLE_DEVICES={args.gpu if args.gpu is not None else ""}',
+            f'CUDA_VISIBLE_DEVICES={args.gpu}',
             f'{storage}/venvs/idea003-vllm030/bin/python'] + command
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=False)

@@ -77,7 +77,7 @@ under the storage base. Target `Qwen/Qwen3-4B` is pinned at
 
 Use `scripts/compute/nebula/submit_sd.py` from a committed detached worktree
 for SD jobs. It selects the isolated Python environment and records actual
-PIDs in the supplied primary job ledger. `--gpu` accepts indices 5-8; omitting
+PIDs in the supplied primary job ledger. `--gpu` accepts indices 0-9; omitting
 it hides all CUDA devices for dataset construction and CPU analysis. Check
 current capacity before GPU placement. At the latest preparation snapshot,
 GPUs 5-8 each had about 6.7 GiB free and were busy with other VLLM processes;
@@ -87,3 +87,20 @@ The native collection configuration uses eager execution and host graph
 copies, so collection durations are diagnostic only. Final timing will use
 a separately frozen configuration without capture overhead. Long waits for
 this study are delegated to GPT-6 Luna with max reasoning.
+
+
+On 2026-09-26 the user expanded the idea 003 allocation to any physically
+present GPU in indices 0-9 with sufficient free memory and allowed concurrent
+stacked jobs. This supersedes the earlier 5-8 restriction for idea 003 only.
+Collection and integration may share a device when capacity permits; final
+latency measurements must document and avoid material contention. The observed
+Nebula inventory contains nine devices, indices 0-8; index 9 is not assumed to
+exist. Existing unrelated processes must remain untouched.
+
+
+For initial collection, the committed configuration uses tensor parallelism
+across four GPUs, 0.11 device-memory utilization per GPU, and an 8,192-token
+context limit. `submit_sd.py --gpu 0,1,2,3` expresses this placement. This fits
+the current free-memory budget in principle; the stage-0 run establishes actual
+runtime fit. The full candidate lattice is replicated by native vLLM, so only
+rank zero copies and saves it. This topology is fixed before outcome collection.

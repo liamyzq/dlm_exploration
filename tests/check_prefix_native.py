@@ -10,7 +10,7 @@ from src.methods.prefix_utility import accepted_prefix, native_greedy, probabili
 def verify(ar_dir, native_dir):
     ar = {r['prompt_id']: r for r in map(json.loads, (Path(ar_dir)/'generations.jsonl').read_text().splitlines())}
     native = list(map(json.loads, (Path(native_dir)/'generations.jsonl').read_text().splitlines()))
-    graphs, rounds, failures = 0, 0, []
+    graphs, rounds, post_terminal_rounds, failures = 0, 0, 0, []
     for row in native:
         prompt_id = row['prompt_id']
         reference = ar[prompt_id]
@@ -24,13 +24,17 @@ def verify(ar_dir, native_dir):
             offsets = data['all_offsets'].astype(int)
             rounds += len(offsets)
             for i, offset in enumerate(offsets):
-                if not 1 <= offset <= len(target):
+                if offset >= len(target):
+                    # V2 drafts before the scheduler trims a sampled block at EOS/cap.
+                    post_terminal_rounds += 1
+                    continue
+                if offset < 1:
                     failures.append({'prompt_id': prompt_id, 'round': i, 'failure': 'invalid committed offset'})
                     continue
                 if int(data['all_anchor_ids'][i]) != target[offset-1]:
                     failures.append({'prompt_id': prompt_id, 'round': i, 'failure': 'anchor alignment'})
                 accepted = accepted_prefix(data['all_native_tokens'][i], target[offset:offset+7])
-                if i+1 < len(offsets) and offsets[i+1]-offset != accepted+1:
+                if i+1 < len(offsets) and offsets[i+1] < len(target) and offsets[i+1]-offset != accepted+1:
                     failures.append({'prompt_id': prompt_id, 'round': i, 'failure': 'accepted-length/next-boundary alignment',
                                      'offset': int(offset), 'next_offset': int(offsets[i+1]), 'accepted': accepted})
             for candidates, scores, actual in zip(data['candidate_ids'], data['pair_scores'], data['native_tokens']):
@@ -43,7 +47,8 @@ def verify(ar_dir, native_dir):
                 if expected != actual.tolist():
                     failures.append({'prompt_id': prompt_id, 'failure': 'reconstructed native walk mismatch'})
     return {'status': 'passed' if not failures else 'invalid', 'prompts': len(native),
-            'retained_graphs': graphs, 'captured_rounds': rounds, 'failures': failures,
+            'retained_graphs': graphs, 'captured_rounds': rounds,
+            'post_terminal_rounds': post_terminal_rounds, 'failures': failures,
             'scope': 'Native graph integration and exact greedy parity; no acceleration claim'}
 
 

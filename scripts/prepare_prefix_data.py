@@ -6,8 +6,8 @@ import json
 from pathlib import Path
 
 import numpy as np
-from datasets import load_dataset
-from huggingface_hub import HfApi
+from datasets import Dataset, load_dataset
+from huggingface_hub import HfApi, hf_hub_download
 
 
 SEED = 20260926
@@ -52,9 +52,25 @@ def main():
         revision = api.dataset_info(dataset_id, revision="main").sha
         if not revision:
             raise RuntimeError(f"No resolved revision for {dataset_id}")
-        dataset = load_dataset(dataset_id, name=config, split=source_split, revision=revision)
-        # Drop answer/reference columns before reading any row values.
-        prompts = dataset.select_columns([prompt_field])
+        if source_name == "alpaca_eval":
+            # The official builder maps alpaca_eval/eval to this JSON array
+            # and yields its rows in array order, without transforming them.
+            data_file = "alpaca_eval.json"
+            path = hf_hub_download(
+                repo_id=dataset_id, repo_type="dataset",
+                filename=data_file, revision=revision,
+            )
+            with open(path, encoding="utf-8") as handle:
+                source_rows = json.load(handle)
+            prompts = Dataset.from_dict({prompt_field: [row[prompt_field] for row in source_rows]})
+            del source_rows
+            if len(prompts) != 805:
+                raise ValueError(f"Expected 805 AlpacaEval eval rows, received {len(prompts)}")
+        else:
+            data_file = None
+            dataset = load_dataset(dataset_id, name=config, split=source_split, revision=revision)
+            # Drop answer/reference columns before reading any row values.
+            prompts = dataset.select_columns([prompt_field])
         selected = []
         skipped_duplicates = 0
         for index in rng.permutation(len(prompts)):
@@ -84,6 +100,9 @@ def main():
             "duplicates_skipped_before_selection_complete": skipped_duplicates,
             "selected_row_ids": {},
         }
+        if data_file is not None:
+            source_manifest["data_file"] = data_file
+            source_manifest["loader"] = "Pinned JSON array; prompt field only, original row order"
         offset = 0
         for partition, size in PARTITIONS:
             subset = selected[offset:offset + size]

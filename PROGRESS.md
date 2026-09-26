@@ -98,3 +98,21 @@ post-hoc result would be exploratory and would not alter R4 confirmation.
 Primary storage stays on nebula. Formal worktrees and raw artifacts preserve
 all tested commits and commands. Two pre-existing untracked P0 drafts remain
 untouched and are not validated R-series entry points.
+
+
+### Idea 003 execution preparation (2026-09-26 UTC)
+
+The accepted English protocol is now executable through native lattice collection
+and exact offline comparison. The independent CPU reference check passed 200
+random small lattices and 20,803 enumerated paths, with maximum absolute error
+8.33e-16. This supports the mathematical implementation, not an LLM speed claim.
+The target, drafter and isolated vLLM environment are downloaded and pinned.
+Initial dataset construction failed on the removed AlpacaEval builder interface;
+the repair reads the same pinned source JSON and preserves the split protocol.
+
+All nine Nebula GPUs are busy. The user expanded allocation to any available
+index 0-9 and allowed stacking, so initial collection uses four-way tensor
+parallelism within the available per-device memory. Native token parity,
+candidate headroom and speedup remain unmeasured. The goal continues through
+the declared scientific success/no-go decision; plan publication alone is not
+the stopping point.

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "seed": 20260926,
+  "cases": 200,
+  "enumerated_paths": 20803,
+  "maximum_absolute_error": 8.326672684688674e-16,
+  "stochastic_counterexample_acceptance": 0.9428571428571428,
+  "scope": "CPU mathematical reference; no LLM or latency claim"
+}
