@@ -59,3 +59,31 @@ Long-running setup or experiment waits are delegated to GPT-5.6 Luna with max re
 Setup completed successfully. Core versions are PyTorch 2.12.0, Transformers 4.57.6, tokenizers 0.22.2, huggingface-hub 0.36.2, rotary-embedding-torch 0.8.9, and einops 0.8.2. The first GPU 5 smoke example passed exact official token parity, pause/resume, identity replay (KL 0), cache reconstruction, candidate ordering, and paired-noise checks.
 
 Launch from a clean detached worktree with `scripts/compute/nebula/submit.py`. It records the command, commit, actual PID, device, logs, and terminal exit status. Pass the primary checkout's `jobs/jobs.jsonl` as the ledger so the frozen worktree remains unchanged. `scripts/compute/nebula/run.sh` enforces GPU indices 5-8 and sources `env.sh`. Source `env.sh` only after changing to the intended worktree; its PYTHONPATH selects that checkout and the pinned upstream modules.
+
+
+## Idea 003 speculative-decoding environment
+
+The isolated environment is `storage/venvs/idea003-vllm030` under the storage
+base above. Setup completed on 2026-09-26 at 02:10:55 UTC with vLLM 0.30.0,
+PyTorch 2.13.0+cu130, NumPy 2.3.5, and datasets 5.0.1. The host driver is
+580.178.04; this environment does not modify the CoLA environment.
+
+The model manifest is `runs/003_doob_speculative_decoding/setup-v1/models.json`
+under the storage base. Target `Qwen/Qwen3-4B` is pinned at
+`1cfa9a7208912126459214e8b04321603b3df60c`; drafter
+`mgoin/Qwen3-4B-speculator.dflash2` is pinned at
+`e3e7a18e4f541fa3841c2fb0666a7759079ab6fd`. The shared Hugging Face cache is
+`hf_cache/`. Resolved packages and setup logs remain in the setup directory.
+
+Use `scripts/compute/nebula/submit_sd.py` from a committed detached worktree
+for SD jobs. It selects the isolated Python environment and records actual
+PIDs in the supplied primary job ledger. `--gpu` accepts indices 5-8; omitting
+it hides all CUDA devices for dataset construction and CPU analysis. Check
+current capacity before GPU placement. At the latest preparation snapshot,
+GPUs 5-8 each had about 6.7 GiB free and were busy with other VLLM processes;
+this is insufficient for the planned paired model. Do not terminate them.
+
+The native collection configuration uses eager execution and host graph
+copies, so collection durations are diagnostic only. Final timing will use
+a separately frozen configuration without capture overhead. Long waits for
+this study are delegated to GPT-6 Luna with max reasoning.
