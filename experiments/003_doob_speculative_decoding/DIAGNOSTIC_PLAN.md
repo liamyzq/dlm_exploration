@@ -1,5 +1,7 @@
 # Closure diagnostics for idea 003
 
+Status: complete. See the [diagnostic report](results/DIAGNOSTIC_REPORT.md).
+
 This bounded follow-up implements the two diagnostics requested in the latest
 [research conversation](https://chatgpt.com/c/6ab6d0b8-eee8-83ea-801a-9bb61f110338),
 assistant message `26e7d0f2-a998-47a1-aabe-97e6f649ea54` (7,011 characters,

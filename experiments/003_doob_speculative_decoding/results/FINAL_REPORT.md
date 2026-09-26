@@ -201,3 +201,10 @@ activated because neither proposed selector passes validation. The 600 final
 prompts have no generated model outcomes and remain unused. This is the
 predeclared terminal no-go for the current version; reopening the question
 with a different proxy or budget requires a separately specified study.
+
+
+Follow-up: the user-requested [closure diagnostics](DIAGNOSTIC_REPORT.md)
+subsequently bounded the full nonnegative Doob family and decomposed DP's
+benefit and harm on these same graphs. They preserve this original decision
+and distinguish the marginal Doob/native-fallback oracle opportunity from
+any measured deployable gain.

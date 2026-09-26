@@ -44,6 +44,9 @@ and staged latency experiments. Its [final report](experiments/003_doob_speculat
 closes the tested version at the offline acceptance gate: 300 prompts and 2,400
 valid graphs reveal substantial candidate headroom, but no useful validation
 gain from the proposed selectors after the declared calibration.
+The [closure diagnostics](experiments/003_doob_speculative_decoding/results/DIAGNOSTIC_REPORT.md)
+bound the entire linear Doob family and decompose DP's benefit and harm;
+they retain the stop decision while identifying a marginal, untested native-fallback opportunity.
 
 ## Workspace and structure
 

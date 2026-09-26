@@ -126,3 +126,20 @@ an offline acceptance conclusion, not an observed end-to-end slowdown or a
 universal impossibility result. Any different proxy or budget is a new study.
 Collection used 2.164 device-hours within the four-device-hour ceiling. All
 jobs completed, no experiment workers remain, and long waits used Luna max.
+
+The requested [closure diagnostics](experiments/003_doob_speculative_decoding/results/DIAGNOSTIC_REPORT.md)
+now tighten that conclusion. The entire nonnegative linear Doob family,
+even with a separate future-label strength oracle per context, is below native
+by 0.2136 tokens for c=q and 0.2407 after calibration on validation. Pure
+strength tuning therefore cannot close the measured gap. The native/DP oracle
+offers only 1.21% and 1.38% plus-one gain; positive and negative changes coexist,
+but even removing all harm leaves insufficient headroom for the 3% gate.
+
+Doob with native fallback is a distinct, still-open action set: its oracle
+gain is 3.38% (95% CI [2.95%, 3.83%]) for c=q and 3.34% ([2.92%, 3.79%])
+after calibration. This narrow future-label ceiling does not establish a
+deployable improvement. Retain the no-go and avoid GPU optimization; cheap
+fallback predictability would require a separately frozen study. No predictor
+was fitted. Both existing splits are diagnostic development evidence, and
+the final cohort remains unused. Historical implementation and provenance
+checks found no discrepancy; all original per-context values reproduced exactly.

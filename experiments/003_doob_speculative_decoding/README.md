@@ -18,6 +18,16 @@ activated; the 600 final prompts remain unused. This is a scoped no-go for the
 tested rules, checkpoint pair and budget. End-to-end acceleration of the
 proposed selectors is unmeasured.
 
+The requested [closure diagnostics](results/DIAGNOSTIC_REPORT.md) are also
+complete. A future-label oracle choosing any nonnegative Doob strength per
+context remains below native by 0.2136 accepted tokens for c=q and 0.2407
+after calibration. Perfect native/DP switching offers only 1.21% and 1.38%
+validation plus-one gain. Allowing native fallback for Doob leaves 3.38% and
+3.34% oracle gain, with intervals spanning the 3% threshold; this marginal
+opportunity has no demonstrated deployable switching rule. The historical
+implementation/provenance review found no discrepancy, and recomputation of
+the original per-context outcomes has zero difference.
+
 ## Plan and evidence
 
 The complete [English plan](PLAN.md) preserves all 28 numbered equations from
