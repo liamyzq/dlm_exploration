@@ -8,9 +8,13 @@ implemented model family for completed ideas 001 and 002.
 
 The next direction is greedy-first prefix-utility drafting on a frozen candidate
 graph. Compare native selection, Prefix-DP, and analytic Doob reweighting with
-fixed candidates and verification budget. The immediate work is to establish
-the drafter/target pair and baseline interface, then register a new idea and its
-evaluation protocol. Speculative-decoding experiments have not started.
+fixed candidates and verification budget. This direction is registered as
+[idea 003](experiments/003_doob_speculative_decoding/README.md), with the complete
+[English execution plan](experiments/003_doob_speculative_decoding/PLAN.md).
+The plan separates reference probabilities from survival proxies, prioritizes
+Prefix-DP, and defines exact offline acceptance evaluation before timing work.
+The next actions are mathematical reference verification and native DFlash2
+integration on Nebula. Speculative-decoding experiments have not started.
 
 ## Completed idea 002: task consequence and decoder geometry
 

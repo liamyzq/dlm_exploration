@@ -36,8 +36,11 @@ evaluation tools.
   records the encoded-reference measurements and bounded negative evidence for
   the task-selective basin hypothesis.
 
-The speculative-decoding direction is in preparation. Its drafter/target pair,
-environment, and baseline integration are the next setup decisions.
+The speculative-decoding direction is registered as
+[003: Frozen-lattice prefix-utility decoding](experiments/003_doob_speculative_decoding/README.md).
+Its [execution plan](experiments/003_doob_speculative_decoding/PLAN.md) specifies
+Prefix-DP and analytic Doob comparisons, exact offline acceptance evaluation,
+and staged latency experiments. Baseline integration is the next step.
 
 ## Workspace and structure
 
