@@ -34,7 +34,7 @@ Before downloading large assets, check the required space against current availa
 
 `git` and `python3` are available in the noninteractive SSH shell. `sbatch` was not found on that shell's PATH. The project environment and user-authorized GPU indices are documented below. The P0 workers completed; the revised study keeps the released checkpoint frozen and launches no training.
 
-Use the documented environment and launcher below. Recheck permitted GPU availability before launching new work; the user authorization is for physical indices 5-8. Prefer nebula for representative smoke tests.
+Use the documented environment and launcher below. Recheck permitted GPU availability before launching new work; GPU authorization is study-specific: see the idea 001 and expanded idea 003 allocations below. Prefer nebula for representative smoke tests.
 
 Before an expensive run, read the job ledger and resolve any possibly equivalent active job, verify the chosen implementation commit, and allocate a unique output directory. Use the established launcher once one exists. Record actual job IDs or PIDs and observed state changes; never create placeholder job events.
 
@@ -75,7 +75,7 @@ under the storage base. Target `Qwen/Qwen3-4B` is pinned at
 `e3e7a18e4f541fa3841c2fb0666a7759079ab6fd`. The shared Hugging Face cache is
 `hf_cache/`. Resolved packages and setup logs remain in the setup directory.
 
-Use `scripts/compute/nebula/submit_sd.py` from a committed detached worktree
+Use `scripts/compute/submit_sd.py` from a committed detached worktree
 for SD jobs. It selects the isolated Python environment and records actual
 PIDs in the supplied primary job ledger. `--gpu` accepts indices 0-9; omitting
 it hides all CUDA devices for dataset construction and CPU analysis. Check
@@ -104,3 +104,27 @@ context limit. `submit_sd.py --gpu 0,1,2,3` expresses this placement. This fits
 the current free-memory budget in principle; the stage-0 run establishes actual
 runtime fit. The full candidate lattice is replicated by native vLLM, so only
 rank zero copies and saves it. This topology is fixed before outcome collection.
+
+
+## Orion fallback for idea 003
+
+The user authorized Orion when Nebula is unavailable or materially constrained.
+Use the existing lowercase SSH alias `orion`. On 2026-09-26, GPUs 2, 3 and 4
+were idle RTX A6000 devices with 47.4 GiB free each; GPUs 0 and 1 were occupied.
+Available host RAM was about 355 GiB and `/home` had 1.6 TiB free. Python 3.12.3,
+glibc 2.39, driver 580.178.04 and uv 0.10.4 are available.
+
+The Orion mirror and storage use the same absolute directory layout as Nebula,
+including the isolated SD environment. Nebula remains the primary authoring
+checkout. Move code through Git and copy the frozen prompt cohorts unchanged;
+weights are downloaded at the same pinned target and drafter revisions.
+`scripts/compute/submit_sd.py` now records the actual hostname and supports
+both machines. Always supply the primary job ledger on the executing host,
+then transfer its actual events back to the authoring repository.
+
+`configs/003_doob_speculative_decoding/native_orion.json` selects one GPU,
+60% memory utilization and the same 8,192-token context limit, model pair,
+precision, token cap and prompt protocol. This is the preferred full study
+configuration if saturated Nebula cannot complete its four-way integration.
+Use separate experiment identifiers for each host/topology. Do not pool their
+timing results or silently merge lattices from different configurations.

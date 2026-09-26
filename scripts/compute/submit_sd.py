@@ -1,4 +1,4 @@
-"""Start an isolated SD worker on Nebula and record its actual provenance."""
+"""Start an isolated SD worker and record its actual provenance."""
 
 import argparse
 from datetime import datetime, timezone
@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import shlex
+import socket
 import subprocess
 
 
@@ -30,7 +31,7 @@ def main():
             f'{storage}/venvs/idea003-vllm030/bin/python'] + command
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=False)
-    record = dict(event='submitted', experiment=args.experiment, machine='nebula', scheduler='direct',
+    record = dict(event='submitted', experiment=args.experiment, machine=socket.gethostname().split('.')[0], scheduler='direct',
                   commit=commit, config=args.config, command=shlex.join(argv),
                   recorded_at=datetime.now(timezone.utc).isoformat(), artifact_dir=str(out),
                   gpu=args.gpu, working_directory=os.getcwd())
