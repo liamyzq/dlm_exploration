@@ -28,6 +28,10 @@ opportunity has no demonstrated deployable switching rule. The historical
 implementation/provenance review found no discrepancy, and recomputation of
 the original per-context outcomes has zero difference.
 
+The [latest audit reconciliation](results/AUDIT_RECONCILIATION.md) maps the
+reviewer's repeated requests to these completed diagnostics and verifies its
+early/late survival decomposition using the existing full-precision results.
+
 ## Plan and evidence
 
 The complete [English plan](PLAN.md) preserves all 28 numbered equations from

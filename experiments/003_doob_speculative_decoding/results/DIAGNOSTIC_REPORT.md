@@ -208,3 +208,9 @@ Raw context-level moments, paths and divergence labels are stored at
 `/home/mlw0719/cola_dlm_exploration_storage/runs/003_doob_speculative_decoding/003-closure-diagnostics-v1/analysis`.
 The run directory also contains the exact launch record, log and terminal exit
 file. Job and result ledgers retain the actual submission and completion.
+
+
+Latest review: the [audit reconciliation](AUDIT_RECONCILIATION.md) confirms that
+its two requested oracle calculations are already complete and adds the
+verified early/late survival decomposition. The original decision and the
+marginal native-fallback qualification are unchanged.
