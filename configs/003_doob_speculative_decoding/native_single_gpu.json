@@ -1,0 +1,33 @@
+{
+  "experiment": "003-native-lattice-single-gpu-v1",
+  "model_manifest": "/home/mlw0719/cola_dlm_exploration_storage/runs/003_doob_speculative_decoding/setup-v1/models.json",
+  "dataset_directory": "/home/mlw0719/cola_dlm_exploration_storage/datasets/003_doob_speculative_decoding/v1",
+  "seed": 20260926,
+  "max_tokens": 1024,
+  "graphs_per_prompt": 8,
+  "engine": {
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 1,
+    "max_model_len": 8192,
+    "max_num_seqs": 1,
+    "max_num_batched_tokens": 8192,
+    "gpu_memory_utilization": 0.6,
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "enable_chunked_prefill": false,
+    "seed": 20260926,
+    "attention_config": {
+      "backend": "FLASH_ATTN",
+      "flash_attn_version": 2
+    }
+  },
+  "speculative": {
+    "method": "dflash",
+    "num_speculative_tokens": 7,
+    "draft_sample_method": "greedy"
+  },
+  "environment": {
+    "VLLM_USE_V2_MODEL_RUNNER": "1",
+    "VLLM_BATCH_INVARIANT": "1"
+  }
+}

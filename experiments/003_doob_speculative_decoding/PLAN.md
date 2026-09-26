@@ -484,6 +484,12 @@ For Doob, use $\lambda\in\{0,0.1,1,10,100\}$. For the temperature control,
 use $\tau\in\{0.5,0.75,1,1.5\}$ with row-renormalized $q^{1/\tau}$; its mean
 acceptance is also evaluated exactly. Include native deterministic selection
 so an apparent gain from sharpening is not credited as a new mechanism.
+The $\lambda=0$ setting is exactly original $Q$ sampling and remains a control.
+Lock the proposed Doob setting among positive strengths on discovery; only
+Prefix-DP and this positive-strength setting are eligible to advance. Passing
+the native engineering gate alone does not establish an advantage over ordinary
+sampling or sharpening. This interpretation was fixed before full development
+collection and before computing any selector-comparison outcomes.
 
 Define full-path optimization as maximizing $\sum_i\log q_i$ and label it
 accordingly. If a cited baseline optimizes raw matching scores, implement that

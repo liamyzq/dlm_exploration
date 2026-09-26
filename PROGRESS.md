@@ -116,11 +116,20 @@ lattices pass greedy-walk reconstruction and nonterminal boundary accounting
 the interface. The earlier default-arithmetic pilot matched only 9/20 prompts
 and is preserved as invalid evidence; see the compute record for startup repairs.
 
-Proceed with the complete 300-prompt discovery/validation collection on Orion,
-using the same frozen invariant runtime. The two-lane schedule balances one AR
-and one native cohort per GPU. Pilot timings imply about 1.81 device-hours,
-with a four-device-hour collection budget. These capture timings are operational
+Nebula capacity is now available. Two deployment prompts match the validated
+Orion AR reference on all 525 output tokens and 16 retained graphs. Both hosts
+have identical critical package versions and RTX A6000 GPUs. Proceed with the
+complete 300-prompt discovery/validation collection as four parallel single-GPU
+cohorts on Nebula, using the same frozen invariant runtime. Pilot timings imply
+about 1.81 device-hours and 41 minutes elapsed, with a four-device-hour collection
+budget. The earlier Orion schedule submitted no development jobs because its
+GPU capacity changed. These capture timings are operational
 estimates, not speedup evidence. Next, exact offline acceptance and the one
 permitted calibration pass decide whether either selector merits implementation.
 The 600 final-test prompts remain unused until selector lock. No success or
 scientific no-go conclusion has been reached.
+
+The zero-strength Doob setting is ordinary Q sampling and is reported as a
+control. Before full development collection and any selector-comparison outcome,
+the selection rule was clarified to lock a positive-strength Doob setting on
+discovery; only it and Prefix-DP can advance as proposed methods.

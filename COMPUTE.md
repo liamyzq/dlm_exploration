@@ -162,3 +162,21 @@ for Python graph capture. This remedy still requires actual paired verification.
 Any final timing claim must identify this batch-invariant runtime and use it
 equally across methods. Source:
 https://github.com/vllm-project/vllm/blob/v0.30.0/docs/features/batch_invariance.md
+
+
+### Idea 003: Nebula single-GPU collection (2026-09-26 UTC)
+
+Nebula GPUs 0-8 became idle before development launch. The attempted Orion
+development launch stopped on its capacity check without submitting jobs;
+GPU 0 was occupied by another user's training and was left untouched. Nebula
+deployment smoke on GPU 8 passed against the Orion invariant AR reference.
+Both hosts report torch 2.13.0+cu130, vLLM 0.30.0, transformers 5.17.0, NumPy
+2.3.5, FlashInfer 0.6.18.post1 and Triton 3.7.1. The generic single-GPU config
+preserves the validated numerical and memory settings. The revised development
+schedule assigns AR discovery, native discovery, AR validation and native
+validation to GPUs 0, 1, 2 and 3, respectively. It preserves all prompts and
+statistical choices. Job records identify actual committed launch snapshots.
+
+The offline calibration dependency SciPy 1.18.1 is installed in the isolated
+Nebula environment. The targeted Q-control selection regression passed there.
+The complete environment snapshot is setup-v1/packages-development.txt.

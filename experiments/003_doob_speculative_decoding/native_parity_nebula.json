@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "prompts": 2,
+  "retained_graphs": 16,
+  "captured_rounds": 127,
+  "post_terminal_rounds": 4,
+  "failures": [],
+  "scope": "Native graph integration and exact greedy parity; no acceleration claim"
+}

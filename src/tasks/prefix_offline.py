@@ -164,7 +164,7 @@ def summarize(rows, config):
 
 
 def lock_and_validate(discovery, validation):
-    doob = max((name for name in discovery['methods'] if name.startswith('doob_')),
+    doob = max((name for name in discovery['methods'] if name.startswith('doob_') and name != 'doob_0'),
                key=lambda name: discovery['methods'][name]['mean_acceptance'])
     temperature = max((name for name in discovery['methods'] if name.startswith('temperature_')),
                       key=lambda name: discovery['methods'][name]['mean_acceptance'])
