@@ -39,7 +39,7 @@ def main():
     import vllm
     tokenizer = AutoTokenizer.from_pretrained(models['target']['path'])
     inputs = [tokenizer.apply_chat_template([{'role': 'user', 'content': r['prompt']}],
-              tokenize=True, add_generation_prompt=True, enable_thinking=False) for r in records]
+              tokenize=True, return_dict=False, add_generation_prompt=True, enable_thinking=False) for r in records]
     assert all(len(ids)+config['max_tokens'] <= config['engine']['max_model_len'] for ids in inputs)
     engine = dict(config['engine'])
     if args.mode == 'native':

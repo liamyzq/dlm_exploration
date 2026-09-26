@@ -138,3 +138,11 @@ subprocesses can find it. The CUDA compiler exists at `/usr/local/cuda/bin/nvcc`
 Nebula's stacked four-GPU starts made no model-load/generation progress for nine
 minutes and were cancelled. Remaining workers required SIGKILL; both study
 process groups were subsequently observed drained. Other jobs were untouched.
+
+
+The isolated environment resolved Transformers 5.17.0. Its chat-template call
+defaults to `BatchEncoding`, so the collection driver explicitly requests
+`return_dict=False` before passing integer IDs to vLLM. A CPU probe on Orion
+confirmed the default returns two string keys and the explicit setting returns
+a 52-element integer list for the first discovery prompt. Both target-only and
+native DFlash2 models successfully initialized before this input-interface repair.
